@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.drake.slogun"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Home"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".All"
+            android:label="@string/title_activity_all" >
+        </activity>
+        <activity
+            android:name=".DesMoines"
+            android:label="@string/title_activity_des_moines" >
+        </activity>
+        <activity
+            android:name=".IowaCity"
+            android:label="@string/title_activity_iowa_city" >
+        </activity>
+        <activity
+            android:name=".KansasCity"
+            android:label="@string/title_activity_kansas_city" >
+        </activity>
+        <activity
+            android:name=".Milwaukee"
+            android:label="@string/title_activity_milwaukee" >
+        </activity>
+        <activity
+            android:name=".CedarRapids"
+            android:label="@string/title_activity_cedar_rapids" >
+        </activity>
+        <activity
+            android:name=".Chicago"
+            android:label="@string/title_activity_chicago" >
+        </activity>
+        <activity
+            android:name=".Omaha"
+            android:label="@string/title_activity_omaha" >
+        </activity>
+        <activity
+            android:name=".Midwest"
+            android:label="@string/title_activity_midwest" >
+        </activity>
+        <activity
+            android:name=".CurrentEvents"
+            android:label="@string/title_activity_current_events" >
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".Add"
+            android:label="@string/title_activity_add" >
+        </activity>
+        <activity
+            android:name=".MyProfile"
+            android:label="@string/title_activity_my_profile" >
+        </activity>
+        <activity
+            android:name=".Legal"
+            android:label="@string/title_activity_legal" >
+        </activity>
+        <activity
+            android:name=".EditProfile"
+            android:label="@string/title_activity_edit_profile" >
+        </activity>
+    </application>
+
+</manifest>

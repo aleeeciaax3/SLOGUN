@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SLOGUN</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_home">Home</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_my_profile">Profile</string>
+    <string name="action_add">Add a Slogan</string>
+    <string name="action_legal">Legal Notice</string><string name="action_edit_profile">Edit Profile</string><string name="title_activity_settings">Settings</string>
+
+    <string-array name="pages_array">
+        <item>Home</item>
+        <item>All</item>
+        <item>#Des Moines</item>
+        <item>#Iowa City</item>
+        <item>#Kansas City</item>
+        <item>#Milwaukee</item>
+        <item>#Chicago</item>
+        <item>#Cedar Rapids</item>
+        <item>#Ames</item>
+        <item>#Omaha</item>
+        <item>#Midwest</item>
+        <item>#Current Events</item>
+    </string-array>
+
+    <string name="title_activity_des_moines">DesMoines</string>
+    <string name="title_activity_iowa_city">IowaCity</string>
+    <string name="title_activity_all">All</string>
+    <string name="title_activity_cedar_rapids">CedarRapids</string>
+    <string name="title_activity_chicago">Chicago</string>
+    <string name="title_activity_kansas_city">KansasCity</string>
+    <string name="title_activity_milwaukee">Milwaukee</string>
+    <string name="title_activity_omaha">Omaha</string>
+    <string name="title_activity_midwest">Midwest</string>
+    <string name="title_activity_current_events">CurrentEvents</string>
+    <string name="title_activity_add">Add</string>
+    <string name="title_activity_my_profile">MyProfile</string>
+    <string name="title_activity_legal">Legal</string>
+    <string name="title_activity_edit_profile">EditProfile</string>
+    
+    
+
+</resources>

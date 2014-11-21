@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="edu.drake.slogun.Settings" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/action_settings"
+        android:textColor="#3399FF"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:paddingTop="20sp"
+        android:paddingBottom="5sp"
+        android:text="PROFILE"
+        android:textSize="20sp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="60sp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:paddingTop="15sp"
+        android:text="Edit Profile"
+        android:gravity="left"
+        android:onClick="goToEditProfile" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="fill_parent"
+        android:layout_height="60sp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button1"
+        android:paddingTop="15sp"
+        android:text="Slogans You've Liked"
+        android:gravity="left"
+        android:onClick="goToSlogansLiked" />
+    
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/button2"
+        android:paddingTop="20sp"
+        android:paddingBottom="5sp"
+        android:text="LEGAL"
+        android:textSize="20sp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="60sp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:paddingTop="15sp"
+        android:text="Rules and Information"
+        android:gravity="left"
+        android:onClick="goToLegal" />
+    
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="fill_parent"
+        android:layout_height="60sp"
+        android:layout_below="@+id/button3"
+        android:paddingTop="15sp"
+        android:layout_marginTop="20sp"
+        android:gravity="left"
+        android:text="Log Out" />
+
+</LinearLayout>
