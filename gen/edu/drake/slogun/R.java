@@ -61,18 +61,17 @@ public final class R {
         public static final int activity_current_events=0x7f030005;
         public static final int activity_des_moines=0x7f030006;
         public static final int activity_edit_profile=0x7f030007;
-        public static final int activity_home=0x7f030008;
-        public static final int activity_iowa_city=0x7f030009;
-        public static final int activity_kansas_city=0x7f03000a;
-        public static final int activity_legal=0x7f03000b;
-        public static final int activity_midwest=0x7f03000c;
-        public static final int activity_milwaukee=0x7f03000d;
-        public static final int activity_my_profile=0x7f03000e;
-        public static final int activity_omaha=0x7f03000f;
-        public static final int activity_settings=0x7f030010;
-        public static final int new_listing=0x7f030011;
-        public static final int top_listing=0x7f030012;
-        public static final int trending_listing=0x7f030013;
+        public static final int activity_iowa_city=0x7f030008;
+        public static final int activity_kansas_city=0x7f030009;
+        public static final int activity_legal=0x7f03000a;
+        public static final int activity_midwest=0x7f03000b;
+        public static final int activity_milwaukee=0x7f03000c;
+        public static final int activity_my_profile=0x7f03000d;
+        public static final int activity_omaha=0x7f03000e;
+        public static final int activity_settings=0x7f03000f;
+        public static final int new_listing=0x7f030010;
+        public static final int top_listing=0x7f030011;
+        public static final int trending_listing=0x7f030012;
     }
     public static final class menu {
         public static final int add=0x7f080000;

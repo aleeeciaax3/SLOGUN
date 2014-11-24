@@ -82,7 +82,6 @@ public class All extends Activity implements ActionBar.TabListener {
 		
 		final String[] pages = {
 				"All",
-				"Home",
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
@@ -105,8 +104,6 @@ public class All extends Activity implements ActionBar.TabListener {
 
 				String s=((TextView)view).getText().toString();
 				Log.d("from-all textview", s);
-				if(s.equals("Home")){
-					startActivity(new Intent(view.getContext(),Home.class));}
 				//				if(s.equals("All"))
 				//					startActivity(new Intent(view.getContext(),All.class));
 				if(s.equals("#Des Moines")){
@@ -161,7 +158,7 @@ public class All extends Activity implements ActionBar.TabListener {
 			startActivity(intent);
 		}
 		if(id == R.id.action_home) {
-			Intent intent = new Intent(this, Home.class);
+			Intent intent = new Intent(this, All.class);
 			startActivity(intent);
 		}
 		if(id == R.id.action_profile) {

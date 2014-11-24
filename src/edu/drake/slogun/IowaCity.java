@@ -83,7 +83,6 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 		final String[] pages = {
 				"#Iowa City",
 				"All",
-				"Home",
 				"#Des Moines",
 				"#Kansas City",
 				"#Milwaukee",
@@ -104,8 +103,6 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 					int position, long id) {
 
 				String s=((TextView)view).getText().toString();
-				if(s.equals("Home")){
-					startActivity(new Intent(view.getContext(),Home.class));}
 				if(s.equals("All")){
 					Log.d("from-ic", "to-all");
 					startActivity(new Intent(view.getContext(),All.class));}
@@ -160,7 +157,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 			startActivity(intent);
 		}
 		if(id == R.id.action_home) {
-			Intent intent = new Intent(this, Home.class);
+			Intent intent = new Intent(this, All.class);
 			startActivity(intent);
 		}
 		if(id == R.id.action_profile) {

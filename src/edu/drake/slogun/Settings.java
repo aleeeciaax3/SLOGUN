@@ -54,7 +54,7 @@ public class Settings extends Activity {
 			startActivity(intent);
 		}
 		if(id == R.id.action_home) {
-			Intent intent = new Intent(this, Home.class);
+			Intent intent = new Intent(this, All.class);
 			startActivity(intent);
 		}
 		if(id == R.id.action_profile) {
