@@ -7,7 +7,10 @@
     <string name="action_settings">Settings</string>
     <string name="action_my_profile">Profile</string>
     <string name="action_add">Post Slogan</string>
+<<<<<<< HEAD
      <string name="Submit">Submit</string>
+=======
+>>>>>>> 9fb94e95efba25a81fa6f42b9fa134df9f3c9d9b
     <string name="action_legal">Legal Notice</string><string name="action_edit_profile">Edit Profile</string><string name="title_activity_settings">Settings</string>
 
     <string-array name="pages_array">
