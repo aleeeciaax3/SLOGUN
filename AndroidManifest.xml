@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="19"
         android:targetSdkVersion="19" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -79,6 +79,14 @@
         <activity
             android:name=".EditProfile"
             android:label="@string/title_activity_edit_profile" >
+        </activity>
+        <activity
+            android:name=".Miscellaneous"
+            android:label="@string/title_activity_miscellaneous" >
+        </activity>
+        <activity
+            android:name=".Ames"
+            android:label="@string/title_activity_ames" >
         </activity>
     </application>
 

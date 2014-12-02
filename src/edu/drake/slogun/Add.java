@@ -117,65 +117,65 @@ public class Add extends Activity {
 	 
 	 public  void displayAlert()
 	 {
-	 	 final CharSequence[] items = {"Des Moines", "Iowa City", "Kansas City","Milwaukee", "Chicago",
-	 			 "Cedar Rapids","Ames","Omaha","Midwest","Current Event"};
-	 	    final boolean[] states = {false, false, false,false, false,false, false, false,false, false};
+	 	 final CharSequence[] items = {"#Des Moines", "#Iowa City", "#Kansas City","#Milwaukee", "#Chicago",
+	 			 "#Cedar Rapids","#Ames","#Omaha","#Midwest","#Politics/Current Event", "#Miscellaneous"};
+	 	    final boolean[] states = {false, false, false,false, false,false, false, false, false, false, false};
 	 	    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	 	    builder.setTitle("Check Two #'s");
+	 	    builder.setTitle("Check Two");
 	 	    builder.setMultiChoiceItems(items, states, new DialogInterface.OnMultiChoiceClickListener(){
 	 	        public void onClick(DialogInterface dialogInterface, int item, boolean state) {
 	 	        }
 	 	    });
 	 	    
 	 	   
-	 	    builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+	 	    builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
 	 	        public void onClick(DialogInterface dialog, int id) {
-	 	        	SparseBooleanArray CheCked = ((AlertDialog) dialog).getListView().getCheckedItemPositions();
-	 	           /* if (CheCked.get(0))
+	 	        	SparseBooleanArray Checked = ((AlertDialog) dialog).getListView().getCheckedItemPositions();
+	 	        	int numberChecked = 0;
+	 	           if (Checked.get(0))
 	 	            {
-	 	            	
-	 	                //Toast.makeText(TmpActivity2.this, "Item 1", Toast.LENGTH_SHORT).show();
+	 	        	   
 	 	            }
-	 	            if (CheCked.get(1))
-	 	            {
-	 	            	
-	 	            	//Toast.makeText(TmpActivity2.this, "Item 2", Toast.LENGTH_SHORT).show();
-	 	            }
-	 	            if (CheCked.get(2))
-	 	            {
-	 	            	
-	 	            	// Toast.makeText(TmpActivity2.this, "Item 3", Toast.LENGTH_SHORT).show();
-	 	            }
-	 	            if (CheCked.get(3))
+	 	            if (Checked.get(1))
 	 	            {
 	 	            	
 	 	            }
-	 	            if (CheCked.get(4))
+	 	            if (Checked.get(2))
 	 	            {
 	 	            	
 	 	            }
-	 	            if (CheCked.get(5))
+	 	            if (Checked.get(3))
 	 	            {
 	 	            	
 	 	            }
-	 	            if (CheCked.get(6))
+	 	            if (Checked.get(4))
 	 	            {
 	 	            	
 	 	            }
-	 	            if (CheCked.get(7))
+	 	            if (Checked.get(5))
 	 	            {
 	 	            	
 	 	            }
-	 	            if (CheCked.get(8))
+	 	            if (Checked.get(6))
 	 	            {
 	 	            	
 	 	            }
-	 	            if (CheCked.get(9))
+	 	            if (Checked.get(7))
 	 	            {
 	 	            	
-	 	            }*/
-
-	 	           
+	 	            }
+	 	            if (Checked.get(8))
+	 	            {
+	 	            	
+	 	            }
+	 	            if (Checked.get(9))
+	 	            {
+	 	            	
+	 	            }
+	 	            if (Checked.get(9))
+	 	            {
+	 	            	
+	 	            }
 	 	        }
 	 	       
 	 	    });

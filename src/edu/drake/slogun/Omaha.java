@@ -1,6 +1,7 @@
 package edu.drake.slogun;
 
 import java.util.List;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -89,8 +90,10 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				"#Milwaukee",
 				"#Chicago",
 				"#Cedar Rapids",
+				"#Ames",
 				"#Midwest",
-				"#Current Events"
+				"#Politics/Current Events",
+				"Miscellaneous"
 		};
 		final Spinner sp = (Spinner)findViewById(R.id.spinner);
 		final ArrayAdapter<String> ar = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,pages);
@@ -117,12 +120,16 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 					startActivity(new Intent(view.getContext(),Chicago.class));
 				if(s.equals("#Cedar Rapids"))
 					startActivity(new Intent(view.getContext(),CedarRapids.class));
-				//if(s.equals("#Omaha"))
-					//startActivity(new Intent(view.getContext(),Omaha.class));
+				if(s.equals("#Ames"))
+					startActivity(new Intent(view.getContext(),Ames.class));
+//				if(s.equals("#Omaha"))
+//					startActivity(new Intent(view.getContext(),Omaha.class));
 				if(s.equals("#Midwest"))
 					startActivity(new Intent(view.getContext(),Midwest.class));
-				if(s.equals("#Current Events"))
+				if(s.equals("#Politics/Current Events"))
 					startActivity(new Intent(view.getContext(),CurrentEvents.class));
+				if(s.equals("#Miscellaneous"))
+					startActivity(new Intent(view.getContext(),Miscellaneous.class));
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {

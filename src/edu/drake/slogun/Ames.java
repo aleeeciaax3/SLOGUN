@@ -28,7 +28,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class KansasCity extends Activity implements ActionBar.TabListener {
+public class Ames extends Activity implements ActionBar.TabListener {
 
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
@@ -38,7 +38,7 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_kansas_city);
+		setContentView(R.layout.activity_ames);
 		setTitle("");
 		
 		//Set up action bar with custom icon and tabs.
@@ -82,14 +82,14 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 		}
 		
 		final String[] pages = {
-				"#Kansas City",
+				"#Ames",
 				"All",
 				"#Des Moines",
 				"#Iowa City",
+				"#Kansas City",
 				"#Milwaukee",
 				"#Chicago",
 				"#Cedar Rapids",
-				"#Ames",
 				"#Omaha",
 				"#Midwest",
 				"#Politics/Current Events",
@@ -106,25 +106,26 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 					int position, long id) {
 
 				String s=((TextView)view).getText().toString();
-				if(s.equals("All")) {
-					Log.d("from-kc", "to-all");
-					startActivity(new Intent(view.getContext(),All.class)); }
+				Log.d("from-all textview", s);
+				if(s.equals("All"))
+					startActivity(new Intent(view.getContext(),All.class));
 				if(s.equals("#Des Moines")){
 					startActivity(new Intent(view.getContext(),DesMoines.class));}
-				if(s.equals("#Iowa City")) {
-					Log.d("from-kc", "to-ic");
-					startActivity(new Intent(view.getContext(),IowaCity.class)); }
-//				if(s.equals("#Kansas City"))
-//					startActivity(new Intent(view.getContext(),KansasCity.class));
+				if(s.equals("#Iowa City")){
+					Log.d("from-all", "to-ic");
+					startActivity(new Intent(view.getContext(),IowaCity.class));}
+				if(s.equals("#Kansas City")){
+					Log.d("from-all", "to-kc");
+					startActivity(new Intent(view.getContext(),KansasCity.class));}
 				if(s.equals("#Milwaukee")){
-					Log.d("from-kc", "to-mil");
+					Log.d("from-all", "to-mil");
 					startActivity(new Intent(view.getContext(),Milwaukee.class));}
-				if(s.equals("#Chicago")){
-					startActivity(new Intent(view.getContext(),Chicago.class));}
+				if(s.equals("#Chicago"))
+					startActivity(new Intent(view.getContext(),Chicago.class));
 				if(s.equals("#Cedar Rapids"))
 					startActivity(new Intent(view.getContext(),CedarRapids.class));
-				if(s.equals("#Ames"))
-					startActivity(new Intent(view.getContext(),Ames.class));
+//				if(s.equals("#Ames"))
+//					startActivity(new Intent(view.getContext(),Ames.class));
 				if(s.equals("#Omaha"))
 					startActivity(new Intent(view.getContext(),Omaha.class));
 				if(s.equals("#Midwest"))
@@ -145,7 +146,7 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.kansas_city, menu);
+		getMenuInflater().inflate(R.menu.ames, menu);
 		return true;
 	}
 
@@ -183,10 +184,12 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
+
 	@Override
 	public void onTabUnselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
+
 	@Override
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
@@ -273,7 +276,7 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewNew = (WebView) rootView.findViewById(R.id.webviewNew);
-			webViewNew.loadUrl("http://www.yahoo.com"); //slogunapp.appspot.com/listing/new
+			webViewNew.loadUrl("http://www.google.com"); //slogunapp.appspot.com/listing/new
 			webViewNew.setWebViewClient(new MyWebViewClient());
 
 			swipeView1 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout1);	 
@@ -358,7 +361,7 @@ public class KansasCity extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTrending = (WebView) rootView.findViewById(R.id.webviewTrending);
-			webViewTrending.loadUrl("http://www.att.com"); //slogunapp.appspot.com/listing/trending
+			webViewTrending.loadUrl("http://www.amazon.com"); //slogunapp.appspot.com/listing/trending
 			webViewTrending.setWebViewClient(new MyWebViewClient());
 
 			swipeView2 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout2);	 
