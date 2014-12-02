@@ -39,7 +39,6 @@
         android:ems="10"
         android:inputType="number" />
     
-<<<<<<< HEAD
       <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -48,8 +47,5 @@
         android:layout_below="@+id/editText"
         android:layout_marginTop="35dp"
         android:text="@string/Submit" />
-    
-=======
->>>>>>> 9fb94e95efba25a81fa6f42b9fa134df9f3c9d9b
 
 </RelativeLayout>

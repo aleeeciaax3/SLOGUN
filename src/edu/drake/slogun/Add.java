@@ -8,18 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-<<<<<<< HEAD
 import android.util.SparseBooleanArray;
-=======
->>>>>>> 9fb94e95efba25a81fa6f42b9fa134df9f3c9d9b
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-<<<<<<< HEAD
 import android.view.View.OnClickListener;
-=======
->>>>>>> 9fb94e95efba25a81fa6f42b9fa134df9f3c9d9b
 import android.view.View.OnKeyListener;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,15 +33,12 @@ public class Add extends Activity {
 		mTextView = (TextView) findViewById(R.id.textview1);
 		addKeyListener();
 		edittext.addTextChangedListener(mTextEditorWatcher);
-<<<<<<< HEAD
-		 findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
+		findViewById(R.id.button1).setOnClickListener(new OnClickListener() {
 		     @Override
 		     public void onClick(View v) {
 		                        displayAlert();
 		}
 		 });
-=======
->>>>>>> 9fb94e95efba25a81fa6f42b9fa134df9f3c9d9b
 		
 	}
 
@@ -123,7 +114,6 @@ public class Add extends Activity {
 	         public void afterTextChanged(Editable s) {
 	         }
 	 };
-<<<<<<< HEAD
 	 
 	 public  void displayAlert()
 	 {
@@ -197,8 +187,4 @@ public class Add extends Activity {
 	 	    });
 	 	    builder.create().show();
 	 	}
-
-=======
->>>>>>> 9fb94e95efba25a81fa6f42b9fa134df9f3c9d9b
-
 }
