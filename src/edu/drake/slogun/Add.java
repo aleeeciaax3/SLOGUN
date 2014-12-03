@@ -130,7 +130,7 @@ public class Add extends Activity {
 	 	   
 	 	    builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
 	 	        public void onClick(DialogInterface dialog, int id) {
-	 	        	SparseBooleanArray Checked = ((AlertDialog) dialog).getListView().getCheckedItemPositions();
+	 	        	/*SparseBooleanArray Checked = ((AlertDialog) dialog).getListView().getCheckedItemPositions();
 	 	        	int numberChecked = 0;
 	 	           if (Checked.get(0))
 	 	            {
@@ -175,7 +175,7 @@ public class Add extends Activity {
 	 	            if (Checked.get(9))
 	 	            {
 	 	            	
-	 	            }
+	 	            }*/
 	 	        }
 	 	       
 	 	    });
