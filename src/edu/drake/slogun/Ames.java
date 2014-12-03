@@ -173,6 +173,9 @@ public class Ames extends Activity implements ActionBar.TabListener {
 			Intent intent = new Intent(this, MyProfile.class);
 			startActivity(intent);
 		}
+		if(id == R.id.action_log_out) {
+			
+		}
 		return super.onOptionsItemSelected(item);
 	}
 

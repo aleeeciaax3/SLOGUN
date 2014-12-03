@@ -10,7 +10,48 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/action_legal"
+        android:layout_marginTop="10dp"
         android:textColor="#3399FF"
         android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView3"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="•	SloGun is in no way affiliated with RAYGUN. \n
+	•	RAYGUN does not owe any user royalties if their slogan is printed on RAYGUN merchandise. \n
+	•	RAYGUN is not required to include user’s name with their slogan if it is printed on RAYGUN merchandise. \n
+	•	RAYGUN is not required to but has the option to print any of the slogans created on this app. \n
+	•	You must post original slogans. If you infringe other people&apos;s intellectual property rights, we will disable your account  and ban you from the app when appropriate. \n
+	•	SloGun does not claim ownership of any Content that you post on or through the Service. Instead, you hereby grant to SloGun a non-exclusive, fully paid and royalty-free, transferable, sub-licensable, worldwide license to use the Content that you post on or through the Service. The entire community can view your Content and activities, including your photos. \n
+	•	You may not post violent, nude, partially nude, discriminatory, unlawful, infringing, hateful, pornographic or sexually suggestive slogans or other content via the app. \n
+	•	SloGun prohibits the creation of and you agree that you will not create an account for anyone other than yourself. \n
+	•	You agree that you will not solicit, collect or use the login credentials of other SloGun users. \n
+	•	You are responsible for keeping your password secret and secure. \n
+	•	You must not defame, stalk, bully, abuse, harass, threaten, impersonate or intimidate people or entities and you must not post private or confidential information via the app, including, without limitation, your or any other person&apos;s credit card information, social security or alternate national identity numbers, non-public phone numbers or non-public email addresses. \n
+	•	You may not use the app for any illegal or unauthorized purpose. You agree to comply with all laws, rules and regulations (for example, federal, state, local and provincial) applicable to your use of the app and your content including but not limited to, copyright laws. \n
+	•	We reserve the right to modify or terminate the app or your access to the app for any reason, without notice, at any time, and without liability to you. \n
+	•	We reserve the right to refuse access to the Service to anyone for any reason at any time. \n
+	•	We reserve the right to force forfeiture of any username for any reason. \n
+	•	You are solely responsible for your interaction with other users of the app, whether online or offline. You agree that SloGun is not responsible or liable for the conduct of any user. SloGun reserves the right, but has no obligation, to monitor or become involved in disputes between you and other users. Exercise common sense and your best judgment when interacting with others, including when you submit or post content or any personal or other information. \n
+	•	You agree that you are responsible for all data charges you incur through use of the app."
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:text="I agree"
+        android:textColor="#3399FF"
+        android:textSize="25sp" />
 
 </RelativeLayout>

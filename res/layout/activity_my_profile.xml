@@ -42,33 +42,21 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button1"
         android:paddingTop="20sp"
-        android:text="MY COMMENTS"
+        android:text="SHARED OPINIONS"
         android:textSize="25sp"
         android:gravity="left"
         android:onClick="goToComments" />
-    
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="fill_parent"
-        android:layout_height="80sp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button2"
-        android:paddingTop="20sp"
-        android:text="MY TOP SLOGANS"
-        android:textSize="25sp"
-        android:gravity="left"
-        android:onClick="goToTopSlogans" />
     
     <Button
         android:id="@+id/button4"
         android:layout_width="fill_parent"
         android:layout_height="80sp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button3"
+        android:layout_below="@+id/button2"
+        android:gravity="left"
+        android:onClick="goToSettings"
         android:paddingTop="20sp"
         android:text="SETTINGS"
-        android:textSize="25sp"
-        android:gravity="left"
-        android:onClick="goToSettings" />
+        android:textSize="25sp" />
 
 </RelativeLayout>

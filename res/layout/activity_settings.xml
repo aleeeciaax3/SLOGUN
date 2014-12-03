@@ -44,7 +44,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button1"
         android:paddingTop="15sp"
-        android:text="Slogans You've Liked"
+        android:text="Upshot Slogans"
         android:gravity="left"
         android:onClick="goToSlogansLiked" />
     
