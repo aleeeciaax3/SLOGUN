@@ -26,9 +26,10 @@ public final class R {
     }
     public static final class drawable {
         public static final int add=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int profile_photo=0x7f020002;
-        public static final int slogun=0x7f020003;
+        public static final int edit_text_box=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int profile_photo=0x7f020003;
+        public static final int slogun=0x7f020004;
     }
     public static final class id {
         public static final int action_home=0x7f090013;
@@ -87,17 +88,15 @@ public final class R {
         public static final int current_events=0x7f080005;
         public static final int des_moines=0x7f080006;
         public static final int edit_profile=0x7f080007;
-        public static final int home=0x7f080008;
-        public static final int iowa_city=0x7f080009;
-        public static final int kansas_city=0x7f08000a;
-        public static final int legal=0x7f08000b;
-        public static final int midwest=0x7f08000c;
-        public static final int milwaukee=0x7f08000d;
-        public static final int miscellaneous=0x7f08000e;
-        public static final int my_profile=0x7f08000f;
-        public static final int omaha=0x7f080010;
-        public static final int post_slogan=0x7f080011;
-        public static final int settings=0x7f080012;
+        public static final int iowa_city=0x7f080008;
+        public static final int kansas_city=0x7f080009;
+        public static final int legal=0x7f08000a;
+        public static final int midwest=0x7f08000b;
+        public static final int milwaukee=0x7f08000c;
+        public static final int miscellaneous=0x7f08000d;
+        public static final int my_profile=0x7f08000e;
+        public static final int omaha=0x7f08000f;
+        public static final int settings=0x7f080010;
     }
     public static final class string {
         public static final int Submit=0x7f050006;
