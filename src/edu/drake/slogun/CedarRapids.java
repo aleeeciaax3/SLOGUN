@@ -15,6 +15,7 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -270,7 +271,7 @@ public class CedarRapids extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewNew = (WebView) rootView.findViewById(R.id.webviewNew);
-			webViewNew.loadUrl("http://www.hugeinc.com"); //slogunapp.appspot.com/listing/new
+			webViewNew.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/new
 			webViewNew.setWebViewClient(new MyWebViewClient());
 
 			swipeView1 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout1);	 
@@ -314,7 +315,7 @@ public class CedarRapids extends Activity implements ActionBar.TabListener {
 					 * goToSloganPage() method here!
 					 * 
 					 */
-					return true; //this ensures that the link isn't also opened in the parent activity.
+					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -355,7 +356,7 @@ public class CedarRapids extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTrending = (WebView) rootView.findViewById(R.id.webviewTrending);
-			webViewTrending.loadUrl("http://www.google.com"); //slogunapp.appspot.com/listing/trending
+			webViewTrending.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/trending
 			webViewTrending.setWebViewClient(new MyWebViewClient());
 
 			swipeView2 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout2);	 
@@ -399,7 +400,7 @@ public class CedarRapids extends Activity implements ActionBar.TabListener {
 					 * goToSloganPage() method here!
 					 * 
 					 */
-					return true; //this ensures that the link isn't also opened in the parent activity.
+					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -440,7 +441,7 @@ public class CedarRapids extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTop = (WebView) rootView.findViewById(R.id.webviewTop);
-			webViewTop.loadUrl("http://www.red.com"); //slogunapp.appspot.com/listing/top
+			webViewTop.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/top
 			webViewTop.setWebViewClient(new MyWebViewClient());
 
 			swipeView3 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout3);	 
@@ -484,12 +485,35 @@ public class CedarRapids extends Activity implements ActionBar.TabListener {
 					 * goToSlogan() method here!
 					 * 
 					 */
-					return true; //this ensures that the link isn't also opened in the parent activity.
+					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
 				}
 			}
 		}
+	}
+	
+	/*
+	 * This method enables back-button functionality for the WebViews.  
+	 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// Check if the key event was the Back button and if there's history
+		if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewNew.canGoBack()) {
+			webViewNew.goBack();
+			return true;
+		}
+		else if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewTrending.canGoBack()) {
+			webViewTrending.goBack();
+			return true;
+		}
+		else if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewTop.canGoBack()) {
+			webViewTop.goBack();
+			return true;
+		}
+		// If it wasn't the Back key or there's no web page history, bubble up to the default
+		// system behavior (probably exit the activity)
+		return super.onKeyDown(keyCode, event);
 	}
 }
