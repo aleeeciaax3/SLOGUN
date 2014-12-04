@@ -8,13 +8,13 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,7 +44,7 @@ public class CurrentEvents extends Activity implements ActionBar.TabListener {
 		
 		//Set up action bar with custom icon and tabs.
 		final ActionBar actionBar = getActionBar();
-		actionBar.setIcon(R.drawable.slogun);
+		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
 		// This section replaces the text of the actionbar with a spinner.
         Spinner spinnerView = (Spinner) getLayoutInflater().inflate(R.layout.actionbar_spinner_layout, null);  
@@ -84,7 +84,7 @@ public class CurrentEvents extends Activity implements ActionBar.TabListener {
 		
 		final String[] pages = {
 				"#Politics/Current Events",
-				"All",
+				"Home",
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
@@ -107,7 +107,7 @@ public class CurrentEvents extends Activity implements ActionBar.TabListener {
 					int position, long id) {
 
 				String s=((TextView)view).getText().toString();
-				if(s.equals("All"))
+				if(s.equals("Home"))
 					startActivity(new Intent(view.getContext(),All.class));
 				if(s.equals("#Des Moines"))
 					startActivity(new Intent(view.getContext(),DesMoines.class));

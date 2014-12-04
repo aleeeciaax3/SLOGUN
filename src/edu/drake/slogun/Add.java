@@ -1,6 +1,7 @@
 package edu.drake.slogun;
 
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.SparseBooleanArray;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +28,9 @@ public class Add extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add);
 		setTitle("");
-		getActionBar().setIcon(R.drawable.slogun);
+		ActionBar actionBar = getActionBar();
+		actionBar.setIcon(R.drawable.slogun);
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 		edittext = (EditText) findViewById(R.id.editText);// get edittext component
 		mTextView = (TextView) findViewById(R.id.textview1);
 		addKeyListener();

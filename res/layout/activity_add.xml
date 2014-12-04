@@ -5,6 +5,7 @@
     tools:context="edu.drake.slogun.Add" >
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/action_add"

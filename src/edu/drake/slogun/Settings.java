@@ -1,5 +1,6 @@
 package edu.drake.slogun;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +15,9 @@ public class Settings extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_settings);
 		setTitle("");
-		getActionBar().setIcon(R.drawable.slogun);
+		ActionBar actionBar = getActionBar();
+		actionBar.setIcon(R.drawable.slogun);
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 	
 	public void goToEditProfile(View view) {

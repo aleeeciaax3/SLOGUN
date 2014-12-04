@@ -14,7 +14,7 @@
     <string name="title_activity_settings">Settings</string>
 
     <string-array name="pages_array">
-        <item>All</item>
+        <item>Home</item>
         <item>#Des Moines</item>
         <item>#Iowa City</item>
         <item>#Kansas City</item>
@@ -30,7 +30,7 @@
 
     <string name="title_activity_des_moines">DesMoines</string>
     <string name="title_activity_iowa_city">IowaCity</string>
-    <string name="title_activity_all">All</string>
+    <string name="title_activity_all">Home</string>
     <string name="title_activity_cedar_rapids">CedarRapids</string>
     <string name="title_activity_chicago">Chicago</string>
     <string name="title_activity_kansas_city">KansasCity</string>
@@ -44,5 +44,6 @@
     <string name="title_activity_edit_profile">EditProfile</string>
     <string name="title_activity_miscellaneous">Miscellaneous</string>
     <string name="title_activity_ames">Ames</string>
+    <string name="action_slogun">SloGUN</string>
 
 </resources>

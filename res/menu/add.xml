@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.drake.slogun.Add" >
-
+    
     <item android:id="@+id/add"
           android:icon="@drawable/add"
           android:title="@string/action_add"

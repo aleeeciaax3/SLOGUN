@@ -49,6 +49,10 @@
             android:label="@string/title_activity_chicago" >
         </activity>
         <activity
+            android:name=".Ames"
+            android:label="@string/title_activity_ames" >
+        </activity>
+        <activity
             android:name=".Omaha"
             android:label="@string/title_activity_omaha" >
         </activity>
@@ -61,32 +65,33 @@
             android:label="@string/title_activity_current_events" >
         </activity>
         <activity
-            android:name=".Settings"
-            android:label="@string/title_activity_settings" >
-        </activity>
-        <activity
-            android:name=".Add"
-            android:label="@string/title_activity_add" >
-        </activity>
-        <activity
-            android:name=".MyProfile"
-            android:label="@string/title_activity_my_profile" >
-        </activity>
-        <activity
-            android:name=".Legal"
-            android:label="@string/title_activity_legal" >
-        </activity>
-        <activity
-            android:name=".EditProfile"
-            android:label="@string/title_activity_edit_profile" >
-        </activity>
-        <activity
             android:name=".Miscellaneous"
             android:label="@string/title_activity_miscellaneous" >
         </activity>
         <activity
-            android:name=".Ames"
-            android:label="@string/title_activity_ames" >
+            android:name=".Settings"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="edu.drake.slogun.All" >
+        </activity>
+        <activity
+            android:name=".Add"
+            android:label="@string/title_activity_add"
+            android:parentActivityName="edu.drake.slogun.All" >
+        </activity>
+        <activity
+            android:name=".MyProfile"
+            android:label="@string/title_activity_my_profile"
+            android:parentActivityName="edu.drake.slogun.All" >
+        </activity>
+        <activity
+            android:name=".Legal"
+            android:label="@string/title_activity_legal"
+            android:parentActivityName="edu.drake.slogun.All" >
+        </activity>
+        <activity
+            android:name=".EditProfile"
+            android:label="@string/title_activity_edit_profile"
+            android:parentActivityName="edu.drake.slogun.All" >
         </activity>
     </application>
 
