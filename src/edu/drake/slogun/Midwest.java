@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,6 +46,7 @@ public class Midwest extends Activity implements ActionBar.TabListener {
 		//Set up action bar with custom icon and tabs.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
 
 		// This section replaces the text of the actionbar with a spinner.
         Spinner spinnerView = (Spinner) getLayoutInflater().inflate(R.layout.actionbar_spinner_layout, null);  
@@ -94,7 +96,7 @@ public class Midwest extends Activity implements ActionBar.TabListener {
 				"#Ames",
 				"#Omaha",
 				"#Politics/Current Events",
-				"Miscellaneous"
+				"#Miscellaneous"
 		};
 		final Spinner sp = (Spinner)findViewById(R.id.spinner);
 		final ArrayAdapter<String> ar = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,pages);

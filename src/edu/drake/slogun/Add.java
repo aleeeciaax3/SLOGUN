@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -31,6 +33,7 @@ public class Add extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setIcon(R.drawable.slogun);
 	    actionBar.setDisplayHomeAsUpEnabled(true);
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
 		edittext = (EditText) findViewById(R.id.editText);// get edittext component
 		mTextView = (TextView) findViewById(R.id.textview1);
 		addKeyListener();
