@@ -181,6 +181,17 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void goToSloganPage(String sloganURL){
+		Intent intent = new Intent(this, Slogan.class);
+		intent.putExtra("url", sloganURL);
+		startActivity(intent);
+	}
+	public void goToProfilePage(String profileURL) {
+		Intent intent = new Intent(this, MyProfile.class);
+		intent.putExtra("url", profileURL);
+		startActivity(intent);
+	}
 
 
 	//These methods are necessary for tabs.
@@ -320,6 +331,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					 * goToProfilePage() method here!
 					 * 
 					 */
+					((Miscellaneous)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
@@ -327,7 +339,8 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					 * goToSloganPage() method here!
 					 * 
 					 */
-					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
+					((Miscellaneous)getActivity()).goToSloganPage(url);
+					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -405,6 +418,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					 * goToProfilePage() method here!
 					 * 
 					 */
+					((Miscellaneous)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
@@ -412,7 +426,8 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					 * goToSloganPage() method here!
 					 * 
 					 */
-					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
+					((Miscellaneous)getActivity()).goToSloganPage(url);
+					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -490,6 +505,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					 * goToProfilePage() method here!
 					 * 
 					 */
+					((Miscellaneous)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
@@ -497,7 +513,8 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					 * goToSlogan() method here!
 					 * 
 					 */
-					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
+					((Miscellaneous)getActivity()).goToSloganPage(url);
+					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -511,19 +528,6 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// Check if the key event was the Back button and if there's history
-		if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewNew.canGoBack()) {
-			webViewNew.goBack();
-			return true;
-		}
-		else if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewTrending.canGoBack()) {
-			webViewTrending.goBack();
-			return true;
-		}
-		else if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewTop.canGoBack()) {
-			webViewTop.goBack();
-			return true;
-		}
 		// If it wasn't the Back key or there's no web page history, bubble up to the default
 		// system behavior (probably exit the activity)
 		return super.onKeyDown(keyCode, event);

@@ -9,20 +9,24 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import edu.drake.slogun.MyProfile.MyWebViewClient;
 
-public class MyProfile extends Activity {
+public class Comments extends Activity {
 	
 	WebView webView1;
+	SwipeRefreshLayout swipeView1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_my_profile);
+		setContentView(R.layout.activity_comments);
 		setTitle("");
 		ActionBar actionBar = getActionBar();
 		actionBar.setIcon(R.drawable.slogun);
@@ -30,30 +34,26 @@ public class MyProfile extends Activity {
 	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
 	    
 	    String address = getIntent().getExtras().getString("url");
-	    webView1 = (WebView) findViewById(R.id.webviewProfile);
-	    webView1.loadUrl(address); //slogunapp.appspot.com/listing/new
+	    webView1 = (WebView) findViewById(R.id.webviewComments);
+	    webView1.loadUrl(address);
 	    webView1.setWebViewClient(new MyWebViewClient());
+	    
+	    swipeView1 = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);	 
+		swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				swipeView1.setRefreshing(true);
+				webView1.reload();
+				( new Handler()).postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						swipeView1.setRefreshing(false);
+					}
+				}, 3000);
+			}
+		});
 	}
 	
-	public void goToSlogans(View view) {
-//		Intent intent = new Intent(this, MySlogans.class);
-//		startActivity(intent);
-	}
-	
-	public void goToComments(View view) {
-//		Intent intent = new Intent(this, MyComments.class);
-//		startActivity(intent);
-	}
-	
-	public void goToTopSlogans(View view) {
-//		Intent intent = new Intent(this, MyTopSlogans.class);
-//		startActivity(intent);
-	}
-	
-	public void goToSettings(View view) {
-		Intent intent = new Intent(this, Settings.class);
-		startActivity(intent);
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,9 +90,9 @@ public class MyProfile extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void goToSloganPage(String sloganURL){
+	public void goToProfilePage(String profileURL){
 		Intent intent = new Intent(this, Slogan.class);
-		intent.putExtra("url", sloganURL);
+		intent.putExtra("url", profileURL);
 		startActivity(intent);
 	}
 	
@@ -107,16 +107,16 @@ public class MyProfile extends Activity {
 			//This determines whether the user has clicked on either a poem or profile page, 
 			//and then sends them to the appropriate activity.
 			List<String> temp = Uri.parse(url).getPathSegments();
-			if (temp.contains("slogan")) {
+			if (temp.contains("user")) {
 				/* 
 				 * goToSloganPage() method here!
 				 * 
 				 */
-				goToSloganPage(url);
+				goToProfilePage(url);
 				return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 			}
 			else {
-				return false;  //In case it redirects here from "my-profile", for example.
+				return false;
 			}
 		}
 	}

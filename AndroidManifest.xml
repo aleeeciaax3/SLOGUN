@@ -93,6 +93,17 @@
             android:label="@string/title_activity_edit_profile"
             android:parentActivityName="edu.drake.slogun.All" >
         </activity>
+        <activity
+            android:name=".Slogan"
+            android:label="@string/title_activity_slogan"
+            android:parentActivityName="edu.drake.slogun.All"
+            android:launchMode="singleTop" >
+        </activity>
+        <activity
+            android:name=".Comments"
+            android:label="@string/title_activity_comments"
+            android:parentActivityName="edu.drake.slogun.Slogan">
+        </activity>
     </application>
 
 </manifest>

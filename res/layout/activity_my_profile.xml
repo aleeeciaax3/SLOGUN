@@ -3,7 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.drake.slogun.MyProfile" >
+    
+    		<WebView
+                android:id="@+id/webviewProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
+    <!--
     <TextView
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
@@ -58,5 +64,7 @@
         android:paddingTop="20sp"
         android:text="SETTINGS"
         android:textSize="25sp" />
+        
+        -->
 
 </RelativeLayout>

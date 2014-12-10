@@ -1,3 +1,5 @@
+/* SloGUN */
+
 package edu.drake.slogun;
 
 import java.util.List;
@@ -98,6 +100,8 @@ public class All extends Activity implements ActionBar.TabListener {
 				"#Politics/Current Events",
 				"#Miscellaneous"
 		};
+		//The ability to use a spinner and tabs together is courtesy of this example: 
+		//    http://www.hasnath.net/blog/actionbar-tab-spinnerlist-navigation-at-the-same-time
 		final Spinner sp = (Spinner)findViewById(R.id.spinner);
 		final ArrayAdapter<String> ar = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,pages);
 		ar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -141,7 +145,7 @@ public class All extends Activity implements ActionBar.TabListener {
 			}
 		});
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -175,6 +179,17 @@ public class All extends Activity implements ActionBar.TabListener {
 			
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void goToSloganPage(String sloganURL){
+		Intent intent = new Intent(this, Slogan.class);
+		intent.putExtra("url", sloganURL);
+		startActivity(intent);
+	}
+	public void goToProfilePage(String profileURL) {
+		Intent intent = new Intent(this, MyProfile.class);
+		intent.putExtra("url", profileURL);
+		startActivity(intent);
 	}
 
 
@@ -315,6 +330,7 @@ public class All extends Activity implements ActionBar.TabListener {
 					 * goToProfilePage() method here!
 					 * 
 					 */
+					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
@@ -322,7 +338,8 @@ public class All extends Activity implements ActionBar.TabListener {
 					 * goToSloganPage() method here!
 					 * 
 					 */
-					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
+					((All)getActivity()).goToSloganPage(url);
+					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -400,6 +417,7 @@ public class All extends Activity implements ActionBar.TabListener {
 					 * goToProfilePage() method here!
 					 * 
 					 */
+					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
@@ -407,7 +425,8 @@ public class All extends Activity implements ActionBar.TabListener {
 					 * goToSloganPage() method here!
 					 * 
 					 */
-					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
+					((All)getActivity()).goToSloganPage(url);
+					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -485,6 +504,7 @@ public class All extends Activity implements ActionBar.TabListener {
 					 * goToProfilePage() method here!
 					 * 
 					 */
+					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
@@ -492,7 +512,8 @@ public class All extends Activity implements ActionBar.TabListener {
 					 * goToSlogan() method here!
 					 * 
 					 */
-					return false; //this should be true to ensure that the page doesn't also open in the parent activity.
+					((All)getActivity()).goToSloganPage(url);
+					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
@@ -506,19 +527,6 @@ public class All extends Activity implements ActionBar.TabListener {
 	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// Check if the key event was the Back button and if there's history
-		if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewNew.canGoBack()) {
-			webViewNew.goBack();
-			return true;
-		}
-		else if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewTrending.canGoBack()) {
-			webViewTrending.goBack();
-			return true;
-		}
-		else if ((keyCode == KeyEvent.KEYCODE_BACK) && webViewTop.canGoBack()) {
-			webViewTop.goBack();
-			return true;
-		}
 		// If it wasn't the Back key or there's no web page history, bubble up to the default
 		// system behavior (probably exit the activity)
 		return super.onKeyDown(keyCode, event);

@@ -44,6 +44,8 @@
     <string name="title_activity_edit_profile">EditProfile</string>
     <string name="title_activity_miscellaneous">Miscellaneous</string>
     <string name="title_activity_ames">Ames</string>
+    <string name="title_activity_slogan">Slogan</string>
+    <string name="title_activity_comments">Comments</string>
     <string name="action_slogun">SloGUN</string>
 
 </resources>
