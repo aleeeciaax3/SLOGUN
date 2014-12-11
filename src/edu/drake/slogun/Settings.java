@@ -65,6 +65,7 @@ public class Settings extends Activity {
 		}
 		if(id == R.id.action_profile) {
 			Intent intent = new Intent(this, MyProfile.class);
+			intent.putExtra("url", "http://slogunapp.appspot.com/my-profile");
 			startActivity(intent);
 		}
 		if(id == R.id.action_log_out) {
