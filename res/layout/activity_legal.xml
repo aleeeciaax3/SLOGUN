@@ -4,26 +4,36 @@
     android:layout_height="match_parent"
     tools:context="edu.drake.slogun.Legal" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/action_legal"
-        android:layout_marginTop="10dp"
-        android:textColor="#3399FF"
-        android:textSize="30sp" />
+        android:layout_height="fill_parent" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView3"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:text="•	SloGun is in no way affiliated with RAYGUN. \n
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/action_legal"
+                android:textColor="#2f5057"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textView3"
+                android:layout_below="@+id/textView1"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:text="•	SloGun is in no way affiliated with RAYGUN. \n
 	•	RAYGUN does not owe any user royalties if their slogan is printed on RAYGUN merchandise. \n
 	•	RAYGUN is not required to include user’s name with their slogan if it is printed on RAYGUN merchandise. \n
 	•	RAYGUN is not required to but has the option to print any of the slogans created on this app. \n
@@ -40,18 +50,20 @@
 	•	We reserve the right to force forfeiture of any username for any reason. \n
 	•	You are solely responsible for your interaction with other users of the app, whether online or offline. You agree that SloGun is not responsible or liable for the conduct of any user. SloGun reserves the right, but has no obligation, to monitor or become involved in disputes between you and other users. Exercise common sense and your best judgment when interacting with others, including when you submit or post content or any personal or other information. \n
 	•	You agree that you are responsible for all data charges you incur through use of the app."
-        android:textSize="13sp" />
+                android:textSize="13sp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="50dp"
-        android:gravity="center"
-        android:text="I agree"
-        android:textColor="#3399FF"
-        android:textSize="25sp" />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginLeft="10dip"
+				android:layout_marginRight="10dip"
+                android:onClick="agreed"
+                android:text="I agree"
+                android:textColor="#2f5057"
+                android:textSize="25sp"
+                style="?android:attr/borderlessButtonStyle" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

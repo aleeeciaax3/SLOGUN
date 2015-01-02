@@ -1,0 +1,11 @@
+body {
+    font-family: Roboto, Helvetica, sans-serif;
+    text-align: center;
+    padding: 2em;
+}
+.highlighted-word {
+  color: #ffffff;
+  background-color: #2f5057;
+  padding: 0em .12em;
+  font-size: 160%;
+}

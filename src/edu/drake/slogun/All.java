@@ -10,6 +10,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -18,17 +19,20 @@ import android.os.Handler;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -38,25 +42,26 @@ public class All extends Activity implements ActionBar.TabListener {
 	ViewPager mViewPager;
 
 	static WebView webViewNew, webViewTrending, webViewTop;
+	static ProgressBar loadingImage;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_all);
 		setTitle("");
-		
+
 		//Set up action bar with custom icon and tabs.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
-		
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DADADA")));
+
 		// This section replaces the text of the actionbar with a spinner.
-        Spinner spinnerView = (Spinner) getLayoutInflater().inflate(R.layout.actionbar_spinner_layout, null);  
-        actionBar.setCustomView(spinnerView);
+		Spinner spinnerView = (Spinner) getLayoutInflater().inflate(R.layout.actionbar_spinner_layout, null);  
+		actionBar.setCustomView(spinnerView);
 		actionBar.setDisplayShowCustomEnabled(true);
-		
+
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		
+
 		// Create the adapter that will return a fragment for each of the three primary sections of the activity.
 		mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
@@ -84,10 +89,16 @@ public class All extends Activity implements ActionBar.TabListener {
 			actionBar.addTab(actionBar.newTab()
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
-		}
-		
+		}		
+	}
+
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
 		final String[] pages = {
-				"Home",
+				"#Main",
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
@@ -96,47 +107,50 @@ public class All extends Activity implements ActionBar.TabListener {
 				"#Cedar Rapids",
 				"#Ames",
 				"#Omaha",
-				"#Midwest",
+				"#The Midwest",
 				"#Politics/Current Events",
-				"#Miscellaneous"
+				"#Everything Else"
 		};
-		//The ability to use a spinner and tabs together is courtesy of this example: 
+		//The ability to use a spinner and tabs together comes courtesy of this example: 
 		//    http://www.hasnath.net/blog/actionbar-tab-spinnerlist-navigation-at-the-same-time
 		final Spinner sp = (Spinner)findViewById(R.id.spinner);
 		final ArrayAdapter<String> ar = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,pages);
 		ar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		sp.setAdapter(ar);
+		//sp.setSelection(0);
 
 		sp.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				String s=((TextView)view).getText().toString();
-//				if(s.equals("Home"))
-//					startActivity(new Intent(view.getContext(),All.class));
-				if(s.equals("#Des Moines")){
-					startActivity(new Intent(view.getContext(),DesMoines.class));}
-				if(s.equals("#Iowa City")){
-					startActivity(new Intent(view.getContext(),IowaCity.class));}
-				if(s.equals("#Kansas City")){
-					startActivity(new Intent(view.getContext(),KansasCity.class));}
-				if(s.equals("#Milwaukee")){
-					startActivity(new Intent(view.getContext(),Milwaukee.class));}
-				if(s.equals("#Chicago"))
-					startActivity(new Intent(view.getContext(),Chicago.class));
-				if(s.equals("#Cedar Rapids"))
-					startActivity(new Intent(view.getContext(),CedarRapids.class));
-				if(s.equals("#Ames"))
-					startActivity(new Intent(view.getContext(),Ames.class));
-				if(s.equals("#Omaha"))
-					startActivity(new Intent(view.getContext(),Omaha.class));
-				if(s.equals("#Midwest"))
-					startActivity(new Intent(view.getContext(),Midwest.class));
-				if(s.equals("#Politics/Current Events"))
-					startActivity(new Intent(view.getContext(),CurrentEvents.class));
-				if(s.equals("#Miscellaneous"))
-					startActivity(new Intent(view.getContext(),Miscellaneous.class));
+				if (((TextView)view) != null){
+					String s=((TextView)view).getText().toString();
+					//				if(s.equals("#Main"))
+					//					startActivity(new Intent(view.getContext(),All.class));
+					if(s.equals("#Des Moines")){
+						startActivity(new Intent(view.getContext(),DesMoines.class));}
+					if(s.equals("#Iowa City")){
+						startActivity(new Intent(view.getContext(),IowaCity.class));}
+					if(s.equals("#Kansas City")){
+						startActivity(new Intent(view.getContext(),KansasCity.class));}
+					if(s.equals("#Milwaukee")){
+						startActivity(new Intent(view.getContext(),Milwaukee.class));}
+					if(s.equals("#Chicago")){
+						startActivity(new Intent(view.getContext(),Chicago.class));}
+					if(s.equals("#Cedar Rapids")){
+						startActivity(new Intent(view.getContext(),CedarRapids.class));}
+					if(s.equals("#Ames")){
+						startActivity(new Intent(view.getContext(),Ames.class));}
+					if(s.equals("#Omaha")){
+						startActivity(new Intent(view.getContext(),Omaha.class));}
+					if(s.equals("#The Midwest")){
+						startActivity(new Intent(view.getContext(),Midwest.class));}
+					if(s.equals("#Politics/Current Events")){
+						startActivity(new Intent(view.getContext(),CurrentEvents.class));}
+					if(s.equals("#Everything Else")){
+						startActivity(new Intent(view.getContext(),Miscellaneous.class));}
+				}
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -145,7 +159,8 @@ public class All extends Activity implements ActionBar.TabListener {
 			}
 		});
 	}
-	
+
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -173,15 +188,15 @@ public class All extends Activity implements ActionBar.TabListener {
 		}
 		if(id == R.id.action_profile) {
 			Intent intent = new Intent(this, MyProfile.class);
-			intent.putExtra("url", "http://slogunapp.appspot.com/my-profile");
+			intent.putExtra("url", "http://slogunapp.appspot.com/app/my-profile");
 			startActivity(intent);
 		}
 		if(id == R.id.action_log_out) {
-			
+
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void goToSloganPage(String sloganURL){
 		Intent intent = new Intent(this, Slogan.class);
 		intent.putExtra("url", sloganURL);
@@ -249,13 +264,13 @@ public class All extends Activity implements ActionBar.TabListener {
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				String title1 = "New";
+				String title1 = "NEW";
 				return title1;
 			case 1:
-				String title2 = "Trending";
+				String title2 = "TRENDING";
 				return title2;
 			case 2:
-				String title3 = "All Time";
+				String title3 = "ALL TIME";
 				return title3;
 			}
 			return null;
@@ -293,9 +308,14 @@ public class All extends Activity implements ActionBar.TabListener {
 			View rootView = inflater.inflate(R.layout.new_listing, container,
 					false);
 
+			//loadingImage = (ProgressBar) rootView.findViewById(R.id.progressBar);
+
 			webViewNew = (WebView) rootView.findViewById(R.id.webviewNew);
-			webViewNew.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/new
+			webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/new"); //slogunapp.appspot.com/app/listing/new
 			webViewNew.setWebViewClient(new MyWebViewClient());
+
+			WebSettings webSettings = webViewNew.getSettings();
+			webSettings.setJavaScriptEnabled(true);
 
 			swipeView1 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout1);	 
 			swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -319,32 +339,42 @@ public class All extends Activity implements ActionBar.TabListener {
 		 * This method gives us custom control over what happens with the links we click.
 		 * Additionally, implement custom back-button functionality with @override onKeyDown().
 		 */
-		public class MyWebViewClient extends WebViewClient {
+		public class MyWebViewClient extends WebViewClient {	
+			/* These should show a progress bar while the webView is loading, but as of yet they cause the webView to never show up */
+			/*public void onPageStarted(WebView view, String url, Bitmap favicon)
+            {
+				Log.d("progressbar", "called onPageStarted()");
+                super.onPageStarted(view, url, favicon);
+                loadingImage.setVisibility(View.VISIBLE);
+            }
+			public void onPageFinished(WebView view, String url) {
+				Log.d("progressbar", "called onPageFinished()");
+                super.onPageFinished(view, url);
+                loadingImage.setVisibility(View.GONE);
+                webViewNew.setVisibility(View.VISIBLE);
+			}*/
+
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
+				//view.loadUrl(url);
 				//This determines whether the user has clicked on either a poem or profile page, 
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((All)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
 					return false;
 				}
+			}
+
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				webViewNew.loadUrl("file:///android_asset/connectionerror.html");
 			}
 		}
 	}
@@ -381,8 +411,11 @@ public class All extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTrending = (WebView) rootView.findViewById(R.id.webviewTrending);
-			webViewTrending.loadUrl("http://slogunapp.appspot.com/listing/trending"); //slogunapp.appspot.com/listing/trending
+			webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/trending"); //slogunapp.appspot.com/app/listing/trending
 			webViewTrending.setWebViewClient(new MyWebViewClient());
+
+			WebSettings webSettings = webViewTrending.getSettings();
+			webSettings.setJavaScriptEnabled(true);
 
 			swipeView2 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout2);	 
 			swipeView2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -433,6 +466,10 @@ public class All extends Activity implements ActionBar.TabListener {
 					return false;
 				}
 			}
+
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				webViewTrending.loadUrl("file:///android_asset/connectionerror.html");
+			}
 		}
 	}
 
@@ -468,8 +505,11 @@ public class All extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTop = (WebView) rootView.findViewById(R.id.webviewTop);
-			webViewTop.loadUrl("http://slogunapp.appspot.com/listing/top"); //slogunapp.appspot.com/listing/top
+			webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/top"); //slogunapp.appspot.com/app/listing/top
 			webViewTop.setWebViewClient(new MyWebViewClient());
+
+			WebSettings webSettings = webViewTop.getSettings();
+			webSettings.setJavaScriptEnabled(true);
 
 			swipeView3 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout3);	 
 			swipeView3.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -520,9 +560,13 @@ public class All extends Activity implements ActionBar.TabListener {
 					return false;
 				}
 			}
+
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				webViewTop.loadUrl("file:///android_asset/connectionerror.html");
+			}
 		}
 	}
-	
+
 	/*
 	 * This method enables back-button functionality for the WebViews.  
 	 */

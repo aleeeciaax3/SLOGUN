@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -27,12 +28,23 @@ public class MyProfile extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setIcon(R.drawable.slogun);
 	    actionBar.setDisplayHomeAsUpEnabled(true);
-	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
-	    
-	    String address = getIntent().getExtras().getString("url");
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DADADA")));
+
+	    //If we're up-navigating to the profile page, there won't be an intent passed.  So default to my-profile.
+	    String address = "http://slogunapp.appspot.com/app/my-profile";
+	    if (getIntent() != null) {
+	    	if (getIntent().getExtras() != null) {
+	    		if (getIntent().getExtras().getString("url") != null) {
+	    			address = getIntent().getExtras().getString("url");
+	    		}
+	    	}
+	    }
 	    webView1 = (WebView) findViewById(R.id.webviewProfile);
-	    webView1.loadUrl(address); //slogunapp.appspot.com/listing/new
+	    webView1.loadUrl(address); 
 	    webView1.setWebViewClient(new MyWebViewClient());
+
+	    WebSettings webSettings = webView1.getSettings();
+		webSettings.setJavaScriptEnabled(true);
 	}
 	
 	public void goToSlogans(View view) {
@@ -80,9 +92,12 @@ public class MyProfile extends Activity {
 			Intent intent = new Intent(this, All.class);
 			startActivity(intent);
 		}
-		if(id == R.id.action_profile) {
-			Intent intent = new Intent(this, MyProfile.class);
-			intent.putExtra("url", "http://slogunapp.appspot.com/my-profile");
+		if(id == R.id.action_edit_profile) {
+			Intent intent = new Intent(this, EditProfile.class);
+			startActivity(intent);
+		}
+		if(id == R.id.action_slogarama) {
+			Intent intent = new Intent(this, Slogarama.class);
 			startActivity(intent);
 		}
 		if(id == R.id.action_log_out) {
@@ -109,16 +124,16 @@ public class MyProfile extends Activity {
 			//and then sends them to the appropriate activity.
 			List<String> temp = Uri.parse(url).getPathSegments();
 			if (temp.contains("slogan")) {
-				/* 
-				 * goToSloganPage() method here!
-				 * 
-				 */
 				goToSloganPage(url);
 				return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 			}
 			else {
 				return false;  //In case it redirects here from "my-profile", for example.
 			}
+		}
+		
+		public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+			webView1.loadUrl("file:///android_asset/connectionerror.html");
 		}
 	}
 }

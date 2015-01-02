@@ -9,22 +9,12 @@
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="left"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
         android:text="@string/action_settings"
-        android:textColor="#3399FF"
+        android:textColor="#2f5057"
         android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
-        android:paddingTop="20sp"
-        android:paddingBottom="5sp"
-        android:text="PROFILE"
-        android:textSize="20sp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/button1"
@@ -33,32 +23,28 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2"
         android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:layout_marginBottom="1sp"
         android:text="Edit Profile"
-        android:gravity="left"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:textColor="#2f5057"
         android:onClick="goToEditProfile" />
-
+    
     <Button
         android:id="@+id/button2"
         android:layout_width="fill_parent"
         android:layout_height="60sp"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button1"
+        android:layout_below="@+id/textView2"
         android:paddingTop="15sp"
-        android:text="Upshot Slogans"
-        android:gravity="left"
-        android:onClick="goToSlogansLiked" />
-    
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button2"
-        android:paddingTop="20sp"
-        android:paddingBottom="5sp"
-        android:text="LEGAL"
-        android:textSize="20sp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:paddingBottom="15sp"
+        android:layout_marginBottom="1sp"
+        android:text="Slogarama"
+        android:gravity="center"
+        android:background="#ffffff"
+        android:textColor="#2f5057"
+        android:onClick="goToSlogarama" />
 
     <Button
         android:id="@+id/button3"
@@ -67,8 +53,11 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView3"
         android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:layout_marginBottom="1sp"
+        android:background="#ffffff"
+        android:textColor="#2f5057"
         android:text="Rules and Information"
-        android:gravity="left"
         android:onClick="goToLegal" />
     
     <Button
@@ -77,8 +66,16 @@
         android:layout_height="60sp"
         android:layout_below="@+id/button3"
         android:paddingTop="15sp"
-        android:layout_marginTop="20sp"
-        android:gravity="left"
-        android:text="Log Out" />
+        android:paddingBottom="15sp"
+        android:background="#ffffff"
+        android:textColor="#2f5057"
+        android:text="Log Out"
+        android:onClick="goToLogout" />
+    
+    <WebView
+        android:id="@+id/webviewSettings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </LinearLayout>

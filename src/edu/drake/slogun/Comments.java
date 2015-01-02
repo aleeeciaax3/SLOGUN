@@ -14,6 +14,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import edu.drake.slogun.MyProfile.MyWebViewClient;
@@ -26,17 +27,23 @@ public class Comments extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		overridePendingTransition(R.anim.in_right, R.anim.out_left);
+		
 		setContentView(R.layout.activity_comments);
 		setTitle("");
 		ActionBar actionBar = getActionBar();
 		actionBar.setIcon(R.drawable.slogun);
 	    actionBar.setDisplayHomeAsUpEnabled(true);
-	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DADADA")));
 	    
 	    String address = getIntent().getExtras().getString("url");
 	    webView1 = (WebView) findViewById(R.id.webviewComments);
 	    webView1.loadUrl(address);
 	    webView1.setWebViewClient(new MyWebViewClient());
+
+	    WebSettings webSettings = webView1.getSettings();
+		webSettings.setJavaScriptEnabled(true);
 	    
 	    swipeView1 = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);	 
 		swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -82,7 +89,7 @@ public class Comments extends Activity {
 		}
 		if(id == R.id.action_profile) {
 			Intent intent = new Intent(this, MyProfile.class);
-			intent.putExtra("url", "http://slogunapp.appspot.com/my-profile");
+			intent.putExtra("url", "http://slogunapp.appspot.com/app/my-profile");
 			startActivity(intent);
 		}
 		if(id == R.id.action_log_out) {
@@ -92,9 +99,15 @@ public class Comments extends Activity {
 	}
 	
 	public void goToProfilePage(String profileURL){
-		Intent intent = new Intent(this, Slogan.class);
+		Intent intent = new Intent(this, MyProfile.class);
 		intent.putExtra("url", profileURL);
 		startActivity(intent);
+	}
+	
+	@Override
+	public void onBackPressed() {
+	 super.onBackPressed();
+	 overridePendingTransition(R.anim.in_left, R.anim.out_right);
 	}
 	
 	/*
@@ -119,6 +132,10 @@ public class Comments extends Activity {
 			else {
 				return false;
 			}
+		}
+		
+		public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+			webView1.loadUrl("file:///android_asset/connectionerror.html");
 		}
 	}
 }

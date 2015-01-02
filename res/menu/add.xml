@@ -2,11 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.drake.slogun.Add" >
     
-    <item android:id="@+id/add"
-          android:icon="@drawable/add"
-          android:title="@string/action_add"
-          android:showAsAction="ifRoom" />
-    
     <item
         android:id="@+id/action_home"
         android:orderInCategory="100"
@@ -24,11 +19,5 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
-    
-    <item
-        android:id="@+id/action_log_out"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_log_out"/>
 
 </menu>

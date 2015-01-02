@@ -23,6 +23,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
@@ -47,7 +48,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 		//Set up action bar with custom icon and tabs.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DADADA")));
 
 		// This section replaces the text of the actionbar with a spinner.
         Spinner spinnerView = (Spinner) getLayoutInflater().inflate(R.layout.actionbar_spinner_layout, null);  
@@ -85,9 +86,17 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					.setTabListener(this));
 		}
 		
+		
+	}
+	
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		
 		final String[] pages = {
-				"#Miscellaneous",
-				"Home",
+				"#Everything Else",
+				"#Main",
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
@@ -96,7 +105,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 				"#Cedar Rapids",
 				"#Ames",
 				"#Omaha",
-				"#Midwest",
+				"#The Midwest",
 				"#Politics/Current Events"
 		};
 		final Spinner sp = (Spinner)findViewById(R.id.spinner);
@@ -111,7 +120,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 
 				String s=((TextView)view).getText().toString();
 				Log.d("from-all textview", s);
-				if(s.equals("Home"))
+				if(s.equals("#Main"))
 					startActivity(new Intent(view.getContext(),All.class));
 				if(s.equals("#Des Moines")){
 					startActivity(new Intent(view.getContext(),DesMoines.class));}
@@ -132,11 +141,11 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					startActivity(new Intent(view.getContext(),Ames.class));
 				if(s.equals("#Omaha"))
 					startActivity(new Intent(view.getContext(),Omaha.class));
-				if(s.equals("#Midwest"))
+				if(s.equals("#The Midwest"))
 					startActivity(new Intent(view.getContext(),Midwest.class));
 				if(s.equals("#Politics/Current Events"))
 					startActivity(new Intent(view.getContext(),CurrentEvents.class));
-//				if(s.equals("#Miscellaneous"))
+//				if(s.equals("#Everything Else"))
 //					startActivity(new Intent(view.getContext(),Miscellaneous.class));
 			}
 			@Override
@@ -146,6 +155,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 			}
 		});
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -174,7 +184,7 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 		}
 		if(id == R.id.action_profile) {
 			Intent intent = new Intent(this, MyProfile.class);
-			intent.putExtra("url", "http://slogunapp.appspot.com/my-profile");
+			intent.putExtra("url", "http://slogunapp.appspot.com/app/my-profile");
 			startActivity(intent);
 		}
 		if(id == R.id.action_log_out) {
@@ -250,13 +260,13 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 		public CharSequence getPageTitle(int position) {
 			switch (position) {
 			case 0:
-				String title1 = "New";
+				String title1 = "NEW";
 				return title1;
 			case 1:
-				String title2 = "Trending";
+				String title2 = "TRENDING";
 				return title2;
 			case 2:
-				String title3 = "All Time";
+				String title3 = "ALL TIME";
 				return title3;
 			}
 			return null;
@@ -295,8 +305,11 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewNew = (WebView) rootView.findViewById(R.id.webviewNew);
-			webViewNew.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/new
+			webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/misc/new"); //slogunapp.appspot.com/app/listing/new
 			webViewNew.setWebViewClient(new MyWebViewClient());
+			
+			WebSettings webSettings = webViewNew.getSettings();
+			webSettings.setJavaScriptEnabled(true);
 
 			swipeView1 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout1);	 
 			swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -347,6 +360,10 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					return false;
 				}
 			}
+			
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				webViewNew.loadUrl("file:///android_asset/connectionerror.html");
+		    }
 		}
 	}
 
@@ -382,8 +399,11 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTrending = (WebView) rootView.findViewById(R.id.webviewTrending);
-			webViewTrending.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/trending
+			webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/misc/trending"); //slogunapp.appspot.com/app/listing/trending
 			webViewTrending.setWebViewClient(new MyWebViewClient());
+			
+			WebSettings webSettings = webViewTrending.getSettings();
+			webSettings.setJavaScriptEnabled(true);
 
 			swipeView2 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout2);	 
 			swipeView2.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -434,6 +454,10 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					return false;
 				}
 			}
+			
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				webViewTrending.loadUrl("file:///android_asset/connectionerror.html");
+		    }
 		}
 	}
 
@@ -469,8 +493,11 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTop = (WebView) rootView.findViewById(R.id.webviewTop);
-			webViewTop.loadUrl("http://slogunapp.appspot.com/listing/new"); //slogunapp.appspot.com/listing/top
+			webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/misc/top"); //slogunapp.appspot.com/app/listing/top
 			webViewTop.setWebViewClient(new MyWebViewClient());
+			
+			WebSettings webSettings = webViewTop.getSettings();
+			webSettings.setJavaScriptEnabled(true);
 
 			swipeView3 = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout3);	 
 			swipeView3.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -521,6 +548,10 @@ public class Miscellaneous extends Activity implements ActionBar.TabListener {
 					return false;
 				}
 			}
+			
+			public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+				webViewTop.loadUrl("file:///android_asset/connectionerror.html");
+		    }
 		}
 	}
 	

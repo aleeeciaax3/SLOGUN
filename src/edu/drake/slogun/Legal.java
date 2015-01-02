@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Legal extends Activity {
 
@@ -19,7 +20,7 @@ public class Legal extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setIcon(R.drawable.slogun);
 	    actionBar.setDisplayHomeAsUpEnabled(true);
-	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#333333")));
+	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DADADA")));
 	}
 
 	@Override
@@ -49,7 +50,7 @@ public class Legal extends Activity {
 		}
 		if(id == R.id.action_profile) {
 			Intent intent = new Intent(this, MyProfile.class);
-			intent.putExtra("url", "http://slogunapp.appspot.com/my-profile");
+			intent.putExtra("url", "http://slogunapp.appspot.com/app/my-profile");
 			startActivity(intent);
 		}
 		if(id == R.id.action_log_out) {
@@ -57,4 +58,9 @@ public class Legal extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void agreed(View view) {
+	     Intent intent = new Intent(this, All.class);
+	     startActivity(intent);
+	 }
 }

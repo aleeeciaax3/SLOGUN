@@ -3,14 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.drake.slogun.EditProfile" >
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/action_edit_profile"
-        android:textColor="#3399FF"
-        android:textSize="30sp" />
+    
+    		<WebView
+                android:id="@+id/webviewEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
 </RelativeLayout>
