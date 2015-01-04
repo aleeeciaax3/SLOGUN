@@ -16,6 +16,7 @@ import android.os.Handler;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -309,7 +310,12 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView1.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewNew.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/omaha/new");
+					}
+					else {
+						webViewNew.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -403,7 +409,12 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView2.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewTrending.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/omaha/trending");
+					}
+					else {
+						webViewTop.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -489,7 +500,12 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView3.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewTop.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/omaha/top");
+					}
+					else {
+						webViewTop.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {

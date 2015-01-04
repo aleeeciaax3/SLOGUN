@@ -72,6 +72,12 @@ public class Slogan extends Activity {
 			public void onRefresh() {
 				swipeView1.setRefreshing(true);
 				webView1.reload();
+				if (webView1.getUrl().equals("file:///android_asset/connectionerror.html")) {
+					webView1.loadUrl(address);
+				}
+				else {
+					webView1.reload();
+				}
 				( new Handler()).postDelayed(new Runnable() {
 					@Override
 					public void run() {
@@ -130,7 +136,7 @@ public class Slogan extends Activity {
 			Intent sharingIntent = new Intent(Intent.ACTION_SEND); 
 			sharingIntent.setType("text/plain");
 			String shareBody = the_slogan_text;
-			sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "SloGUN");
+			sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "SloGun");
 			sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
 			setShareIntent(sharingIntent);
 			startActivity(Intent.createChooser(sharingIntent, "Share via..."));

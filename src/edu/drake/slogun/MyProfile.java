@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +21,8 @@ import android.webkit.WebViewClient;
 public class MyProfile extends Activity {
 	
 	WebView webView1;
+	SwipeRefreshLayout swipeView1;
+	String address;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,7 @@ public class MyProfile extends Activity {
 	    actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DADADA")));
 
 	    //If we're up-navigating to the profile page, there won't be an intent passed.  So default to my-profile.
-	    String address = "http://slogunapp.appspot.com/app/my-profile";
+	    address = "http://slogunapp.appspot.com/app/my-profile";
 	    if (getIntent() != null) {
 	    	if (getIntent().getExtras() != null) {
 	    		if (getIntent().getExtras().getString("url") != null) {
@@ -45,6 +49,27 @@ public class MyProfile extends Activity {
 
 	    WebSettings webSettings = webView1.getSettings();
 		webSettings.setJavaScriptEnabled(true);
+		
+		swipeView1 = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);	 
+		swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				swipeView1.setRefreshing(true);
+				webView1.reload();
+				if (webView1.getUrl().equals("file:///android_asset/connectionerror.html")) {
+					webView1.loadUrl(address);
+				}
+				else {
+					webView1.reload();
+				}
+				( new Handler()).postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						swipeView1.setRefreshing(false);
+					}
+				}, 3000);
+			}
+		});
 	}
 	
 	public void goToSlogans(View view) {
@@ -92,14 +117,19 @@ public class MyProfile extends Activity {
 			Intent intent = new Intent(this, All.class);
 			startActivity(intent);
 		}
-		if(id == R.id.action_edit_profile) {
+		if(id == R.id.action_profile) {
+			Intent intent = new Intent(this, MyProfile.class);
+			intent.putExtra("url", "http://slogunapp.appspot.com/app/my-profile");
+			startActivity(intent);
+		}
+		/* if(id == R.id.action_edit_profile) {
 			Intent intent = new Intent(this, EditProfile.class);
 			startActivity(intent);
-		}
-		if(id == R.id.action_slogarama) {
+		} */
+		/* if(id == R.id.action_slogarama) {
 			Intent intent = new Intent(this, Slogarama.class);
 			startActivity(intent);
-		}
+		} */
 		if(id == R.id.action_log_out) {
 			
 		}

@@ -30,6 +30,7 @@ public class Add extends Activity {
 	
 	String sloganString;
 	WebView webView1;
+	SwipeRefreshLayout swipeView1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +48,28 @@ public class Add extends Activity {
 	    
 	    WebSettings webSettings = webView1.getSettings();
 		webSettings.setJavaScriptEnabled(true);
+		
+		swipeView1 = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);	 
+		swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				swipeView1.setRefreshing(true);
+				webView1.reload();
+				if (webView1.getUrl().equals("file:///android_asset/connectionerror.html")) {
+					webView1.loadUrl("http://slogunapp.appspot.com/app/addSlogan");
+				}
+				else {
+					webView1.reload();
+				}
+				( new Handler()).postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						swipeView1.setRefreshing(false);
+					}
+				}, 3000);
+			}
+		});
 	}
-
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

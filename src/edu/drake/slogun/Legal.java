@@ -60,7 +60,7 @@ public class Legal extends Activity {
 	}
 	
 	public void agreed(View view) {
-	     Intent intent = new Intent(this, All.class);
+	     Intent intent = new Intent(this, Settings.class);
 	     startActivity(intent);
 	 }
 }

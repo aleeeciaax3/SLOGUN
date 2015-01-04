@@ -3,10 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-		<WebView
+
+    <ImageView
+        android:id="@+id/checkProfileBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background02" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipeRefreshLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <WebView
             android:id="@+id/webviewCheckProfile"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-		
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 </LinearLayout>

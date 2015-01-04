@@ -309,7 +309,12 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView1.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewNew.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/milwaukee/new");
+					}
+					else {
+						webViewNew.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -403,7 +408,12 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView2.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewTrending.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/milwaukee/trending");
+					}
+					else {
+						webViewTrending.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -497,7 +507,12 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView3.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewTop.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/milwaukee/top");
+					}
+					else {
+						webViewTop.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {

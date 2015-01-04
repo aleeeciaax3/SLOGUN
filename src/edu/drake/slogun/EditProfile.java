@@ -9,17 +9,22 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class EditProfile extends Activity {
 
 	WebView webView1;
+	SwipeRefreshLayout swipeView1;
+	
 	private ValueCallback<Uri> mUploadMessage; 
 	 private final static int FILECHOOSER_RESULTCODE=1;  
 
@@ -53,6 +58,30 @@ public class EditProfile extends Activity {
 		webView1 = (WebView) findViewById(R.id.webviewEditProfile);
 		webView1.loadUrl(address); 
 		webView1.setWebViewClient(new MyWebViewClient());
+
+		WebSettings webSettings = webView1.getSettings();
+		webSettings.setJavaScriptEnabled(true);
+		
+		swipeView1 = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout1);	 
+		swipeView1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				swipeView1.setRefreshing(true);
+				webView1.reload();
+				if (webView1.getUrl().equals("file:///android_asset/connectionerror.html")) {
+					webView1.loadUrl("http://slogunapp.appspot.com/app/my-profile/slogarama");
+				}
+				else {
+					webView1.reload();
+				}
+				( new Handler()).postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						swipeView1.setRefreshing(false);
+					}
+				}, 3000);
+			}
+		});
 		
 		//This ought to enable file uploads for everyone but Android 4.4 users...  Borrowed from here: http://stackoverflow.com/questions/5907369/file-upload-in-webview
 		webView1.setWebChromeClient(new WebChromeClient()  {  

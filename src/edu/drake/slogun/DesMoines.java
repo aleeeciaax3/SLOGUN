@@ -309,7 +309,12 @@ public class DesMoines extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView1.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewNew.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/des-moines/new");
+					}
+					else {
+						webViewNew.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -403,7 +408,12 @@ public class DesMoines extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView2.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewTrending.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/des-moines/ttrendingop");
+					}
+					else {
+						webViewTrending.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -486,8 +496,7 @@ public class DesMoines extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTop = (WebView) rootView.findViewById(R.id.webviewTop);
-			//webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/des-moines/top"); //slogunapp.appspot.com/app/listing/top
-			webViewTop.loadUrl("file:///android_asset/connectionerror.html");
+			webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/des-moines/top"); //slogunapp.appspot.com/app/listing/top
 			webViewTop.setWebViewClient(new MyWebViewClient());
 			
 			WebSettings webSettings = webViewTop.getSettings();
@@ -498,7 +507,12 @@ public class DesMoines extends Activity implements ActionBar.TabListener {
 				@Override
 				public void onRefresh() {
 					swipeView3.setRefreshing(true);
-					webViewNew.reload();
+					if (webViewTop.getUrl().equals("file:///android_asset/connectionerror.html")) {
+						webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/des-moines/top");
+					}
+					else {
+						webViewTop.reload();
+					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
 						public void run() {
