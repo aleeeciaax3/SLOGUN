@@ -98,8 +98,9 @@ public class Ames extends Activity implements ActionBar.TabListener {
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
-				"#Milwaukee",
+				"#Minnesota",
 				"#Chicago",
+				"#Milwaukee",
 				"#Cedar Rapids",
 				"#Omaha",
 				"#The Midwest",
@@ -123,13 +124,12 @@ public class Ames extends Activity implements ActionBar.TabListener {
 				if(s.equals("#Des Moines")){
 					startActivity(new Intent(view.getContext(),DesMoines.class));}
 				if(s.equals("#Iowa City")){
-					Log.d("from-all", "to-ic");
 					startActivity(new Intent(view.getContext(),IowaCity.class));}
 				if(s.equals("#Kansas City")){
-					Log.d("from-all", "to-kc");
 					startActivity(new Intent(view.getContext(),KansasCity.class));}
+				if(s.equals("#Minnesota")){
+					startActivity(new Intent(view.getContext(),Minnesota.class));}
 				if(s.equals("#Milwaukee")){
-					Log.d("from-all", "to-mil");
 					startActivity(new Intent(view.getContext(),Milwaukee.class));}
 				if(s.equals("#Chicago"))
 					startActivity(new Intent(view.getContext(),Chicago.class));
@@ -193,6 +193,11 @@ public class Ames extends Activity implements ActionBar.TabListener {
 	public void goToSloganPage(String sloganURL){
 		Intent intent = new Intent(this, Slogan.class);
 		intent.putExtra("url", sloganURL);
+		startActivity(intent);
+	}
+	public void goToCommentsPage(String commentsURL) {
+		Intent intent = new Intent(this, Comments.class);
+		intent.putExtra("url", commentsURL);
 		startActivity(intent);
 	}
 	public void goToProfilePage(String profileURL) {
@@ -342,18 +347,14 @@ public class Ames extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Ames)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Ames)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((Ames)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
@@ -441,18 +442,14 @@ public class Ames extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Ames)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Ames)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((Ames)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
@@ -540,18 +537,14 @@ public class Ames extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Ames)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Ames)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSlogan() method here!
-					 * 
-					 */
 					((Ames)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}

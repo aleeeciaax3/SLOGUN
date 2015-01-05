@@ -16,7 +16,6 @@ import android.os.Handler;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -100,8 +99,9 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
-				"#Milwaukee",
+				"#Minnesota",
 				"#Chicago",
+				"#Milwaukee",
 				"#Cedar Rapids",
 				"#Ames",
 				"#The Midwest",
@@ -129,6 +129,8 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 					startActivity(new Intent(view.getContext(),KansasCity.class));
 				if(s.equals("#Milwaukee"))
 					startActivity(new Intent(view.getContext(),Milwaukee.class));
+				if(s.equals("#Minnesota")){
+					startActivity(new Intent(view.getContext(),Minnesota.class));}
 				if(s.equals("#Chicago"))
 					startActivity(new Intent(view.getContext(),Chicago.class));
 				if(s.equals("#Cedar Rapids"))
@@ -192,6 +194,11 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 	public void goToSloganPage(String sloganURL){
 		Intent intent = new Intent(this, Slogan.class);
 		intent.putExtra("url", sloganURL);
+		startActivity(intent);
+	}
+	public void goToCommentsPage(String commentsURL) {
+		Intent intent = new Intent(this, Comments.class);
+		intent.putExtra("url", commentsURL);
 		startActivity(intent);
 	}
 	public void goToProfilePage(String profileURL) {
@@ -340,18 +347,14 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Omaha)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Omaha)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((Omaha)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
@@ -442,6 +445,10 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 					((Omaha)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Omaha)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
 					((Omaha)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
@@ -530,18 +537,14 @@ public class Omaha extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Omaha)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Omaha)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSlogan() method here!
-					 * 
-					 */
 					((Omaha)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}

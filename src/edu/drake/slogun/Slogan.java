@@ -111,7 +111,6 @@ public class Slogan extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.slogan, menu);
-		Log.d("share", "test oncreatemenu");
 		// Locate MenuItem with ShareActionProvider
 		MenuItem item = menu.findItem(R.id.menu_item_share);
 		// Fetch and store ShareActionProvider
@@ -127,7 +126,7 @@ public class Slogan extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if(id == R.id.add) {
-			Log.d("share", "test add");
+			Log.d("comments", "add from Slogan");
 			Intent intent = new Intent(this, Add.class);
 			startActivity(intent);
 		}
@@ -136,7 +135,7 @@ public class Slogan extends Activity {
 			Intent sharingIntent = new Intent(Intent.ACTION_SEND); 
 			sharingIntent.setType("text/plain");
 			String shareBody = the_slogan_text;
-			sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "SloGun");
+			sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Slogun");
 			sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
 			setShareIntent(sharingIntent);
 			startActivity(Intent.createChooser(sharingIntent, "Share via..."));

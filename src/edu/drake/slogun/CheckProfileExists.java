@@ -79,23 +79,19 @@ public class CheckProfileExists extends Activity {
 		@android.webkit.JavascriptInterface
 		public void processHTML(String html)
 		{
-			Log.d("logout test", "called processHTML on CheckProfileExists");
 			//This method pulls the HTML from the webpage so that we can get the actual slogna's text.
 			//Shoutout to SO: http://stackoverflow.com/questions/5264162/how-to-retrieve-html-content-from-webview-as-a-string
 			String[] htmlLines = html.split(">");
 			for (int i = 0; i < htmlLines.length; i++) {
 				if (htmlLines[i].contains("userHasProfile:")) { 
 					the_page_check_text = htmlLines[i];
-					Log.d("checkProf", the_page_check_text);
 					userChecked = true;
 					if (the_page_check_text.contains("True")) {
 						userHasProfile = true;
-						Log.d("checkProf", "sent to home() from js interface");
 						goToHome();
 					}
 					else {
 						userHasProfile = false;
-						Log.d("checkProf", "sent to createProfile() from js interface");
 						goToCreateProfile();
 					}
 				}

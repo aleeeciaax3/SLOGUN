@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SloGun</string>
+    <string name="app_name">Slogun</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_home">Home</string>
     <string name="action_settings">Settings</string>
@@ -37,6 +37,7 @@
     <string name="title_activity_chicago">Chicago</string>
     <string name="title_activity_kansas_city">KansasCity</string>
     <string name="title_activity_milwaukee">Milwaukee</string>
+    <string name="title_activity_minnesota">Minnesota</string>
     <string name="title_activity_omaha">Omaha</string>
     <string name="title_activity_midwest">Midwest</string>
     <string name="title_activity_current_events">CurrentEvents</string>

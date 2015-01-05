@@ -11,13 +11,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import edu.drake.slogun.MyProfile.MyWebViewClient;
 
 public class Comments extends Activity {
 	
@@ -65,7 +64,7 @@ public class Comments extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.my_profile, menu);
+		getMenuInflater().inflate(R.menu.comments, menu);
 		return true;
 	}
 
@@ -76,6 +75,7 @@ public class Comments extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if(id == R.id.add) {
+			Log.d("comments", "add from comments");
 			Intent intent = new Intent(this, Add.class);
 			startActivity(intent);
 		}
@@ -122,10 +122,6 @@ public class Comments extends Activity {
 			//and then sends them to the appropriate activity.
 			List<String> temp = Uri.parse(url).getPathSegments();
 			if (temp.contains("user")) {
-				/* 
-				 * goToSloganPage() method here!
-				 * 
-				 */
 				goToProfilePage(url);
 				return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 			}

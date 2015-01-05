@@ -102,8 +102,9 @@ public class All extends Activity implements ActionBar.TabListener {
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
-				"#Milwaukee",
+				"#Minnesota",
 				"#Chicago",
+				"#Milwaukee",
 				"#Cedar Rapids",
 				"#Ames",
 				"#Omaha",
@@ -134,10 +135,12 @@ public class All extends Activity implements ActionBar.TabListener {
 						startActivity(new Intent(view.getContext(),IowaCity.class));}
 					if(s.equals("#Kansas City")){
 						startActivity(new Intent(view.getContext(),KansasCity.class));}
-					if(s.equals("#Milwaukee")){
-						startActivity(new Intent(view.getContext(),Milwaukee.class));}
+					if(s.equals("#Minnesota")){
+						startActivity(new Intent(view.getContext(),Minnesota.class));}
 					if(s.equals("#Chicago")){
 						startActivity(new Intent(view.getContext(),Chicago.class));}
+					if(s.equals("#Milwaukee")){
+						startActivity(new Intent(view.getContext(),Milwaukee.class));}
 					if(s.equals("#Cedar Rapids")){
 						startActivity(new Intent(view.getContext(),CedarRapids.class));}
 					if(s.equals("#Ames")){
@@ -197,9 +200,14 @@ public class All extends Activity implements ActionBar.TabListener {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void goToSloganPage(String sloganURL){
+	public void goToSloganPage(String sloganURL) {
 		Intent intent = new Intent(this, Slogan.class);
 		intent.putExtra("url", sloganURL);
+		startActivity(intent);
+	}
+	public void goToCommentsPage(String commentsURL) {
+		Intent intent = new Intent(this, Comments.class);
+		intent.putExtra("url", commentsURL);
 		startActivity(intent);
 	}
 	public void goToProfilePage(String profileURL) {
@@ -369,6 +377,10 @@ public class All extends Activity implements ActionBar.TabListener {
 					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((All)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
 					((All)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
@@ -457,18 +469,14 @@ public class All extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((All)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((All)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
@@ -556,18 +564,14 @@ public class All extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((All)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((All)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSlogan() method here!
-					 * 
-					 */
 					((All)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}

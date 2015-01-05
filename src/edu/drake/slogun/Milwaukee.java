@@ -99,6 +99,7 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				"#Des Moines",
 				"#Iowa City",
 				"#Kansas City",
+				"#Minnesota",
 				"#Chicago",
 				"#Cedar Rapids",
 				"#Ames",
@@ -128,6 +129,8 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 					startActivity(new Intent(view.getContext(),KansasCity.class));}
 //				if(s.equals("#Milwaukee"))
 //					startActivity(new Intent(view.getContext(),Milwaukee.class));
+				if(s.equals("#Minnesota")){
+					startActivity(new Intent(view.getContext(),Minnesota.class));}
 				if(s.equals("#Chicago"))
 					startActivity(new Intent(view.getContext(),Chicago.class));
 				if(s.equals("#Cedar Rapids"))
@@ -191,6 +194,11 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 	public void goToSloganPage(String sloganURL){
 		Intent intent = new Intent(this, Slogan.class);
 		intent.putExtra("url", sloganURL);
+		startActivity(intent);
+	}
+	public void goToCommentsPage(String commentsURL) {
+		Intent intent = new Intent(this, Comments.class);
+		intent.putExtra("url", commentsURL);
 		startActivity(intent);
 	}
 	public void goToProfilePage(String profileURL) {
@@ -339,18 +347,14 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Milwaukee)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Milwaukee)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((Milwaukee)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
@@ -438,18 +442,14 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Milwaukee)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Milwaukee)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSloganPage() method here!
-					 * 
-					 */
 					((Milwaukee)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
@@ -537,18 +537,14 @@ public class Milwaukee extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					/* 
-					 * goToProfilePage() method here!
-					 * 
-					 */
 					((Milwaukee)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
+				else if (temp.contains("comments")) {
+					((Milwaukee)getActivity()).goToCommentsPage(url);
+					return true;
+				}
 				else if (temp.contains("slogan")) {
-					/* 
-					 * goToSlogan() method here!
-					 * 
-					 */
 					((Milwaukee)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}

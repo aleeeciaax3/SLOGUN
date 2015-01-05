@@ -33,19 +33,20 @@ public final class R {
     public static final class drawable {
         public static final int add=0x7f020000;
         public static final int background02=0x7f020001;
-        public static final int blue=0x7f02000c;
+        public static final int blue=0x7f02000d;
         public static final int edit_text_box=0x7f020002;
         public static final int gmail02=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int iconslogun2=0x7f020005;
-        public static final int logintextlogo=0x7f020006;
-        public static final int profile_photo=0x7f020007;
-        public static final int shareicon=0x7f020008;
-        public static final int signup02=0x7f020009;
-        public static final int slogun=0x7f02000a;
-        public static final int tabSelected=0x7f02000e;
-        public static final int tabUnselected=0x7f02000d;
-        public static final int tab_bar_background=0x7f02000b;
+        public static final int iconslogun3=0x7f020006;
+        public static final int logintextlogo=0x7f020007;
+        public static final int profile_photo=0x7f020008;
+        public static final int shareicon=0x7f020009;
+        public static final int signup02=0x7f02000a;
+        public static final int slogun=0x7f02000b;
+        public static final int tabSelected=0x7f02000f;
+        public static final int tabUnselected=0x7f02000e;
+        public static final int tab_bar_background=0x7f02000c;
     }
     public static final class id {
         public static final int action_home=0x7f0a0019;
@@ -98,18 +99,19 @@ public final class R {
         public static final int activity_legal=0x7f03000e;
         public static final int activity_midwest=0x7f03000f;
         public static final int activity_milwaukee=0x7f030010;
-        public static final int activity_miscellaneous=0x7f030011;
-        public static final int activity_my_profile=0x7f030012;
-        public static final int activity_omaha=0x7f030013;
-        public static final int activity_settings=0x7f030014;
-        public static final int activity_slogan=0x7f030015;
-        public static final int activity_slogarama=0x7f030016;
-        public static final int activity_start_screen_continue=0x7f030017;
-        public static final int activity_start_screen_gmail=0x7f030018;
-        public static final int list_item=0x7f030019;
-        public static final int new_listing=0x7f03001a;
-        public static final int top_listing=0x7f03001b;
-        public static final int trending_listing=0x7f03001c;
+        public static final int activity_minnesota=0x7f030011;
+        public static final int activity_miscellaneous=0x7f030012;
+        public static final int activity_my_profile=0x7f030013;
+        public static final int activity_omaha=0x7f030014;
+        public static final int activity_settings=0x7f030015;
+        public static final int activity_slogan=0x7f030016;
+        public static final int activity_slogarama=0x7f030017;
+        public static final int activity_start_screen_continue=0x7f030018;
+        public static final int activity_start_screen_gmail=0x7f030019;
+        public static final int list_item=0x7f03001a;
+        public static final int new_listing=0x7f03001b;
+        public static final int top_listing=0x7f03001c;
+        public static final int trending_listing=0x7f03001d;
     }
     public static final class menu {
         public static final int add=0x7f090000;
@@ -117,20 +119,22 @@ public final class R {
         public static final int ames=0x7f090002;
         public static final int cedar_rapids=0x7f090003;
         public static final int chicago=0x7f090004;
-        public static final int create_profile=0x7f090005;
-        public static final int current_events=0x7f090006;
-        public static final int des_moines=0x7f090007;
-        public static final int edit_profile=0x7f090008;
-        public static final int iowa_city=0x7f090009;
-        public static final int kansas_city=0x7f09000a;
-        public static final int legal=0x7f09000b;
-        public static final int midwest=0x7f09000c;
-        public static final int milwaukee=0x7f09000d;
-        public static final int miscellaneous=0x7f09000e;
-        public static final int my_profile=0x7f09000f;
-        public static final int omaha=0x7f090010;
-        public static final int settings=0x7f090011;
-        public static final int slogan=0x7f090012;
+        public static final int comments=0x7f090005;
+        public static final int create_profile=0x7f090006;
+        public static final int current_events=0x7f090007;
+        public static final int des_moines=0x7f090008;
+        public static final int edit_profile=0x7f090009;
+        public static final int iowa_city=0x7f09000a;
+        public static final int kansas_city=0x7f09000b;
+        public static final int legal=0x7f09000c;
+        public static final int midwest=0x7f09000d;
+        public static final int milwaukee=0x7f09000e;
+        public static final int minnesota=0x7f09000f;
+        public static final int miscellaneous=0x7f090010;
+        public static final int my_profile=0x7f090011;
+        public static final int omaha=0x7f090012;
+        public static final int settings=0x7f090013;
+        public static final int slogan=0x7f090014;
     }
     public static final class string {
         public static final int Submit=0x7f060008;
@@ -142,29 +146,30 @@ public final class R {
         public static final int action_log_out=0x7f060007;
         public static final int action_my_profile=0x7f060004;
         public static final int action_settings=0x7f060003;
-        public static final int action_slogun=0x7f06001f;
+        public static final int action_slogun=0x7f060020;
         public static final int app_name=0x7f060000;
         public static final int hello_world=0x7f060001;
         public static final int slogarama=0x7f06000b;
-        public static final int title_activity_add=0x7f060017;
+        public static final int title_activity_add=0x7f060018;
         public static final int title_activity_all=0x7f06000f;
-        public static final int title_activity_ames=0x7f06001c;
+        public static final int title_activity_ames=0x7f06001d;
         public static final int title_activity_cedar_rapids=0x7f060010;
         public static final int title_activity_chicago=0x7f060011;
-        public static final int title_activity_comments=0x7f06001e;
-        public static final int title_activity_current_events=0x7f060016;
+        public static final int title_activity_comments=0x7f06001f;
+        public static final int title_activity_current_events=0x7f060017;
         public static final int title_activity_des_moines=0x7f06000d;
-        public static final int title_activity_edit_profile=0x7f06001a;
+        public static final int title_activity_edit_profile=0x7f06001b;
         public static final int title_activity_iowa_city=0x7f06000e;
         public static final int title_activity_kansas_city=0x7f060012;
-        public static final int title_activity_legal=0x7f060019;
-        public static final int title_activity_midwest=0x7f060015;
+        public static final int title_activity_legal=0x7f06001a;
+        public static final int title_activity_midwest=0x7f060016;
         public static final int title_activity_milwaukee=0x7f060013;
-        public static final int title_activity_miscellaneous=0x7f06001b;
-        public static final int title_activity_my_profile=0x7f060018;
-        public static final int title_activity_omaha=0x7f060014;
+        public static final int title_activity_minnesota=0x7f060014;
+        public static final int title_activity_miscellaneous=0x7f06001c;
+        public static final int title_activity_my_profile=0x7f060019;
+        public static final int title_activity_omaha=0x7f060015;
         public static final int title_activity_settings=0x7f06000c;
-        public static final int title_activity_slogan=0x7f06001d;
+        public static final int title_activity_slogan=0x7f06001e;
     }
     public static final class style {
         /** 

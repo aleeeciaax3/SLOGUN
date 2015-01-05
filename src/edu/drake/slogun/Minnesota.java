@@ -31,7 +31,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class IowaCity extends Activity implements ActionBar.TabListener {
+public class Minnesota extends Activity implements ActionBar.TabListener {
 
 	SectionsPagerAdapter mSectionsPagerAdapter;
 	ViewPager mViewPager;
@@ -41,7 +41,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_iowa_city);
+		setContentView(R.layout.activity_minnesota);
 		setTitle("");
 		
 		//Set up action bar with custom icon and tabs.
@@ -94,11 +94,11 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 		super.onResume();
 		
 		final String[] pages = {
-				"#Iowa City",
+				"#Minnesota",
 				"#Main",
 				"#Des Moines",
+				"#Iowa City",
 				"#Kansas City",
-				"#Minnesota",
 				"#Chicago",
 				"#Milwaukee",
 				"#Cedar Rapids",
@@ -119,18 +119,18 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 					int position, long id) {
 
 				String s=((TextView)view).getText().toString();
-				if(s.equals("#Main")){
-					startActivity(new Intent(view.getContext(),All.class));}
-				if(s.equals("#Des Moines")){
-					startActivity(new Intent(view.getContext(),DesMoines.class));}
-//				if(s.equals("#Iowa City"))
-//					startActivity(new Intent(view.getContext(),IowaCity.class));
-				if(s.equals("#Kansas City")){
-					startActivity(new Intent(view.getContext(),KansasCity.class));}
-				if(s.equals("#Milwaukee")){
-					startActivity(new Intent(view.getContext(),Milwaukee.class));}
-				if(s.equals("#Minnesota")){
-					startActivity(new Intent(view.getContext(),Minnesota.class));}
+				if(s.equals("#Main"))
+					startActivity(new Intent(view.getContext(),All.class));
+				if(s.equals("#Des Moines"))
+					startActivity(new Intent(view.getContext(),DesMoines.class));
+				if(s.equals("#Iowa City"))
+					startActivity(new Intent(view.getContext(),IowaCity.class));
+				if(s.equals("#Kansas City"))
+					startActivity(new Intent(view.getContext(),KansasCity.class));
+				if(s.equals("#Milwaukee"))
+					startActivity(new Intent(view.getContext(),Milwaukee.class));
+//				if(s.equals("#Minnesota")){
+//					startActivity(new Intent(view.getContext(),Minnesota.class));}
 				if(s.equals("#Chicago"))
 					startActivity(new Intent(view.getContext(),Chicago.class));
 				if(s.equals("#Cedar Rapids"))
@@ -158,7 +158,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.iowa_city, menu);
+		getMenuInflater().inflate(R.menu.minnesota, menu);
 		return true;
 	}
 
@@ -190,7 +190,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
 	public void goToSloganPage(String sloganURL){
 		Intent intent = new Intent(this, Slogan.class);
 		intent.putExtra("url", sloganURL);
@@ -206,6 +206,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 		intent.putExtra("url", profileURL);
 		startActivity(intent);
 	}
+
 
 	//These methods are necessary for tabs.
 	@Override
@@ -305,7 +306,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewNew = (WebView) rootView.findViewById(R.id.webviewNew);
-			webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/iowa-city/new"); //slogunapp.appspot.com/app/listing/new
+			webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/minnesota/new"); //slogunapp.appspot.com/app/listing/new
 			webViewNew.setWebViewClient(new MyWebViewClient());
 			
 			WebSettings webSettings = webViewNew.getSettings();
@@ -317,7 +318,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 				public void onRefresh() {
 					swipeView1.setRefreshing(true);
 					if (webViewNew.getUrl().equals("file:///android_asset/connectionerror.html")) {
-						webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/iowa-city/new");
+						webViewNew.loadUrl("http://slogunapp.appspot.com/app/listing/minnesota/new");
 					}
 					else {
 						webViewNew.reload();
@@ -346,15 +347,15 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					((IowaCity)getActivity()).goToProfilePage(url);
+					((Minnesota)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("comments")) {
-					((IowaCity)getActivity()).goToCommentsPage(url);
+					((Minnesota)getActivity()).goToCommentsPage(url);
 					return true;
 				}
 				else if (temp.contains("slogan")) {
-					((IowaCity)getActivity()).goToSloganPage(url);
+					((Minnesota)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
@@ -400,7 +401,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTrending = (WebView) rootView.findViewById(R.id.webviewTrending);
-			webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/iowa-city/trending"); //slogunapp.appspot.com/app/listing/trending
+			webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/minnesota/trending"); //slogunapp.appspot.com/app/listing/trending
 			webViewTrending.setWebViewClient(new MyWebViewClient());
 			
 			WebSettings webSettings = webViewTrending.getSettings();
@@ -412,10 +413,10 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 				public void onRefresh() {
 					swipeView2.setRefreshing(true);
 					if (webViewTrending.getUrl().equals("file:///android_asset/connectionerror.html")) {
-						webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/iowa-city/trending");
+						webViewTrending.loadUrl("http://slogunapp.appspot.com/app/listing/minnesota/trending");
 					}
 					else {
-						webViewTrending.reload();
+						webViewTop.reload();
 					}
 					( new Handler()).postDelayed(new Runnable() {
 						@Override
@@ -441,15 +442,15 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					((IowaCity)getActivity()).goToProfilePage(url);
+					((Minnesota)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("comments")) {
-					((IowaCity)getActivity()).goToCommentsPage(url);
+					((Minnesota)getActivity()).goToCommentsPage(url);
 					return true;
 				}
 				else if (temp.contains("slogan")) {
-					((IowaCity)getActivity()).goToSloganPage(url);
+					((Minnesota)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {
@@ -495,7 +496,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 					false);
 
 			webViewTop = (WebView) rootView.findViewById(R.id.webviewTop);
-			webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/iowa-city/top"); //slogunapp.appspot.com/app/listing/top
+			webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/minnesota/top"); //slogunapp.appspot.com/app/listing/top
 			webViewTop.setWebViewClient(new MyWebViewClient());
 			
 			WebSettings webSettings = webViewTop.getSettings();
@@ -507,7 +508,7 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 				public void onRefresh() {
 					swipeView3.setRefreshing(true);
 					if (webViewTop.getUrl().equals("file:///android_asset/connectionerror.html")) {
-						webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/iowa-city/top");
+						webViewTop.loadUrl("http://slogunapp.appspot.com/app/listing/minnesota/top");
 					}
 					else {
 						webViewTop.reload();
@@ -536,15 +537,15 @@ public class IowaCity extends Activity implements ActionBar.TabListener {
 				//and then sends them to the appropriate activity.
 				List<String> temp = Uri.parse(url).getPathSegments();
 				if (temp.contains("user")) {
-					((IowaCity)getActivity()).goToProfilePage(url);
+					((Minnesota)getActivity()).goToProfilePage(url);
 					return true; //this ensures that the link isn't also opened in the parent activity.
 				}
 				else if (temp.contains("comments")) {
-					((IowaCity)getActivity()).goToCommentsPage(url);
+					((Minnesota)getActivity()).goToCommentsPage(url);
 					return true;
 				}
 				else if (temp.contains("slogan")) {
-					((IowaCity)getActivity()).goToSloganPage(url);
+					((Minnesota)getActivity()).goToSloganPage(url);
 					return true; //this should be true to ensure that the page doesn't also open in the parent activity.
 				}
 				else {

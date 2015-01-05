@@ -2,8 +2,6 @@ package edu.drake.slogun;
 
 import java.util.List;
 
-import edu.drake.slogun.CheckProfileExists.MyJavaScriptInterface;
-import edu.drake.slogun.CheckProfileExists.MyWebViewClient;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +12,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -135,18 +132,14 @@ public class CreateProfile extends Activity {
 	public class MyWebViewClient extends WebViewClient {
 		@Override
 		public boolean shouldOverrideUrlLoading(WebView view, String url) {
-			
-			Log.d("createProf", "Called shouldOverrideUrlLoading");
 
 			//This determines whether the page has redirected to either the slogan or home listing page
 			List<String> temp = Uri.parse(url).getPathSegments();
 			if (temp.contains("app/listing")) { 
-				Log.d("createProf", "Fired on app/listing");
 				goToHome();
 				return true; //this prevents the url from being opened in this webview.
 			}
 			else {
-				Log.d("createProf", "Fired on NOT app/listing");
 				return false;
 			}
 		}
